@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player.ProgressBar;
 using UnityEngine.UI;
+
 using TMPro;
 namespace Player.Controller
 {
     public class PlayerController : MonoBehaviour
     {
-
         [SerializeField] private ProgressBarSettings _progressBarSettings;
         [SerializeField] private Scrollbar _progressBarScrool;
-        [SerializeField] TextMeshProUGUI _winLostText;
+
         private bool _isExit;
 
         private void Start()
@@ -30,15 +30,13 @@ namespace Player.Controller
             }
             else
             {
-                _winLostText.enabled = true;
-                _winLostText.text = "You caught a Hamsi!";
+                GameManager.Instance.FishCaught();
             }
         }
+
         private void OnTriggerExit2D(Collider2D other)
         {
             _isExit = true;
-
-
         }
         private void Update()
         {
