@@ -9,8 +9,11 @@ namespace Player.ProgressBar
     {
         [SerializeField] private float _progressBarValue;
         [SerializeField] private float _increaseValue;
+        [SerializeField] private float _reduceValue;
         public float ProgressBarValue { get => _progressBarValue; set { _progressBarValue = value; } }
         public float IncreaseValue { get => _increaseValue; }
+        public float ReduceValue { get => _reduceValue; }
+
 
     }
 }

@@ -12,13 +12,17 @@ namespace Player.Controller
         [SerializeField] private ProgressBarSettings _progressBarSettings;
         [SerializeField] private Scrollbar _progressBarScrool;
         [SerializeField] TextMeshProUGUI _winLostText;
-        private void Awake()
+        private bool _isExit;
+
+        private void Start()
         {
             if (_progressBarSettings.ProgressBarValue != 0)
                 _progressBarSettings.ProgressBarValue = 0;
         }
+
         private void OnTriggerStay2D(Collider2D other)
         {
+            _isExit = false;
             if (_progressBarScrool.size != 1)
             {
                 _progressBarSettings.ProgressBarValue += _progressBarSettings.IncreaseValue;
@@ -30,9 +34,22 @@ namespace Player.Controller
                 _winLostText.text = "You caught a Hamsi!";
             }
         }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            _isExit = true;
 
 
+        }
+        private void Update()
+        {
+            if (_isExit && _progressBarSettings.ProgressBarValue > 0)
+            {
+                _progressBarSettings.ProgressBarValue -= _progressBarSettings.ReduceValue;
+                _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
 
+            }
+
+        }
 
     }
 }

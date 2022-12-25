@@ -9,5 +9,6 @@ namespace Fishing.Bar
     {
         [SerializeField] private float _handleSpeed;
         public float HandleSpeed { get { return _handleSpeed; } }
+        
     }
 }

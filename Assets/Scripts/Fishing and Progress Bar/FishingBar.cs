@@ -33,6 +33,7 @@ namespace Fishing.Bar
         }
         void Bounds()
         {
+
             if (_handle.value >= 1)
             {
                 maxX = true;
