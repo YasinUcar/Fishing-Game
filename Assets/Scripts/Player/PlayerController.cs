@@ -14,14 +14,31 @@ namespace Player.Controller
 
         private bool _isExit;
 
+        private bool _fishCaught;
         private void Start()
         {
-            if (_progressBarSettings.ProgressBarValue != 0)
-                _progressBarSettings.ProgressBarValue = 0;
+            OnStart();
+            EventManager.NextFish += OnStart;
         }
+        void OnStart()
+        {
+            _progressBarSettings.ProgressBarValue = 0;
+            StartCoroutine(ResetProgressBar());
 
+        }
+        IEnumerator ResetProgressBar()
+        {
+            yield return new WaitForSeconds(3f);
+            _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
+            _fishCaught = false;
+            yield return null;
+        }
         private void OnTriggerStay2D(Collider2D other)
         {
+            if (_fishCaught)
+            {
+                return;
+            }
             _isExit = false;
             if (_progressBarScrool.size != 1)
             {
@@ -30,7 +47,8 @@ namespace Player.Controller
             }
             else
             {
-                GameManager.Instance.FishCaught();
+                _fishCaught = true;
+                EventManager.StartNextFish();
             }
         }
 

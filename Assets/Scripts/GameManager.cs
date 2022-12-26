@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _winLostText;
     [SerializeField] private LevelSettings _level;
     [SerializeField] TextMeshProUGUI _levelText;
-    private bool _winLevel;
 
     private void Awake()
     {
@@ -22,33 +21,23 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         OnStart();
+        EventManager.NextFish += FishCaught;
     }
     void OnStart()
     {
         _levelText.text = _level.name;
     }
-    LevelSettings WhichLevel()
+
+    private void FishCaught()
     {
-        return _level;
-    }
-    public void FishCaught()
-    {
+
         int randomIndex = Random.Range(0, _level._fishs.Count);
         _winLostText.enabled = true;
         _winLostText.text = "";
         InventoryManager.Instance.Add(_level._fishs[randomIndex]);
         LevelBar.Instance.IncreaseValue();
-        LevelCompleted(true);
 
     }
-    public bool LevelCompleted()
-    {
-        return _winLevel;
-    }
-    public bool LevelCompleted(bool level)
-    {
-        _winLevel = level;
-        return _winLevel;
-    }
+
 
 }

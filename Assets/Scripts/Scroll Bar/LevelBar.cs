@@ -15,6 +15,11 @@ namespace LevelBarScroll
         }
         void Start()
         {
+            OnStart();
+
+        }
+        void OnStart()
+        {
             _LevelBarSettings.LevelBarValue = 0;
         }
         void ScrollbarValue()
@@ -23,14 +28,19 @@ namespace LevelBarScroll
         }
         public void IncreaseValue()
         {
-            _LevelBarSettings.LevelBarValue += _LevelBarSettings.IncreaseValue;
-            ScrollbarValue();
+            if (_LevelBarSettings.IncreaseValue < 1)
+            {
+                _LevelBarSettings.LevelBarValue += _LevelBarSettings.IncreaseValue;
+                ScrollbarValue();
+            }
+
         }
         public void ReduceValue(int number)
         {
             _LevelBarSettings.LevelBarValue -= _LevelBarSettings.ReduceValue;
             ScrollbarValue();
         }
+
 
     }
 

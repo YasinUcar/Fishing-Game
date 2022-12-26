@@ -2019,6 +2019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LevelBarSettings: {fileID: 11400000, guid: badf288976b9f4f45895e9a4308e0832, type: 2}
+  _scrollbar: {fileID: 1262679446}
 --- !u!1001 &182178369
 PrefabInstance:
   m_ObjectHideFlags: 0

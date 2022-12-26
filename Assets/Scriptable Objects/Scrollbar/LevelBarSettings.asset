@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1abb4d62793434ba8e190bc9e6d638, type: 3}
   m_Name: LevelBarSettings
   m_EditorClassIdentifier: 
-  _levelBarValue: 0
-  _increaseValue: 0.01
+  _levelBarValue: 0.2
+  _increaseValue: 0.1
   _reduceValue: 0.001
