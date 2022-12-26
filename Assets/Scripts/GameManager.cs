@@ -5,6 +5,7 @@ using TMPro;
 using Item.InventoryManager;
 using Level;
 using LevelBarScroll;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
@@ -13,7 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _winLostText;
     [SerializeField] private LevelSettings _level;
     [SerializeField] TextMeshProUGUI _levelText;
-
+    [SerializeField] private Image _fishImage;
+    private int _randomIndexFish;
     private void Awake()
     {
         Instance = this;
@@ -26,18 +28,21 @@ public class GameManager : MonoBehaviour
     void OnStart()
     {
         _levelText.text = _level.name;
-    }
+        RandomIndexFish();
+        _fishImage.sprite = _level._fishs[_randomIndexFish].icon;
 
+    }
     private void FishCaught()
     {
-
-        int randomIndex = Random.Range(0, _level._fishs.Count);
         _winLostText.enabled = true;
         _winLostText.text = "";
-        InventoryManager.Instance.Add(_level._fishs[randomIndex]);
+        InventoryManager.Instance.Add(_level._fishs[_randomIndexFish]);
         LevelBar.Instance.IncreaseValue();
-
+        RandomIndexFish();
     }
-
+    int RandomIndexFish()
+    {
+        return _randomIndexFish = Random.Range(0, _level._fishs.Count);
+    }
 
 }
