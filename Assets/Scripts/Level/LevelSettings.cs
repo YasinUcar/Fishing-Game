@@ -7,8 +7,7 @@ namespace Level
     [CreateAssetMenu(menuName = "Level", fileName = "Level $")]
     public class LevelSettings : ScriptableObject
     {
-
-        [SerializeField] private List<ItemSettings> _fishs;
+        [SerializeField] public List<ItemSettings> _fishs;
 
     }
 }

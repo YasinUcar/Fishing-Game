@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player.ProgressBar
 {
-    [CreateAssetMenu(menuName = "ProgressBar/ProgressBarSettings", fileName = "ProgressBar Settings")]
+    [CreateAssetMenu(menuName = "Scrollbar/ProgressBar/ProgressBarSettings", fileName = "ProgressBar Settings")]
     public class ProgressBarSettings : ScriptableObject
     {
         [SerializeField] private float _progressBarValue;

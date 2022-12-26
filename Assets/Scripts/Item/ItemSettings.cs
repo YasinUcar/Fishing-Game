@@ -8,8 +8,8 @@ namespace Item.Settings
     public class ItemSettings : ScriptableObject
     {
         [SerializeField] private int id;
-        [SerializeField] private string itemName;
+        [SerializeField] public string itemName;
         [SerializeField] private int value;
-        [SerializeField] private Sprite icon;
+        [SerializeField] public Sprite icon;
     }
 }
