@@ -7,7 +7,7 @@ namespace Item.Settings
     [CreateAssetMenu(menuName = "Items/Fish", fileName = "New Item Fish")]
     public class ItemSettings : ScriptableObject
     {
-        [SerializeField] private int id;
+        [SerializeField] public int id;
         [SerializeField] public string itemName;
         [SerializeField] private int value;
         [SerializeField] public Sprite icon;

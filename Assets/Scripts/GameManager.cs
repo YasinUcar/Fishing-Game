@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         OnStart();
         EventManager.NextFish += FishCaught;
+        EventManager.NextFish += OnStart;
     }
     void OnStart()
     {
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
     int RandomIndexFish()
     {
         return _randomIndexFish = Random.Range(0, _level._fishs.Count);
+    }
+    private void OnDestroy()
+    {
+        EventManager.NextFish += FishCaught;
+        EventManager.NextFish += OnStart;
     }
 
 }

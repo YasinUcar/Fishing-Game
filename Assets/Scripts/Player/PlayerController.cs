@@ -66,6 +66,9 @@ namespace Player.Controller
             }
 
         }
-
+        private void OnDestroy()
+        {
+            EventManager.NextFish -= OnStart;
+        }
     }
 }

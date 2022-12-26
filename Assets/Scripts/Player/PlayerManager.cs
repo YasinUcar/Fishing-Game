@@ -22,5 +22,9 @@ namespace Player.Manager
             _animator.SetTrigger("Çek");
 
         }
+        private void OnDestroy()
+        {
+            EventManager.NextFish -= TriggerCek;
+        }
     }
 }
