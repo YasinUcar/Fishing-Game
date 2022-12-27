@@ -4,17 +4,19 @@ using UnityEngine;
 using Item.Settings;
 using UnityEngine.UI;
 using TMPro;
+using Coin.Settings;
 namespace Item.InventoryManager
 {
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager Instance;
         [SerializeField] private List<ItemSettings> _items = new List<ItemSettings>();
-
+        [SerializeField] private CoinSettings _coinSettings;
         public Transform ItemContent;
         public GameObject InventoryItem;
         private GameObject _objnewItem;
         [SerializeField] private List<TextMeshProUGUI> _coinText;
+        [SerializeField] private TextMeshProUGUI _totalCoinText;
 
         private void Awake()
         {
@@ -27,6 +29,8 @@ namespace Item.InventoryManager
         }
         private void OnStart()
         {
+            if (_coinSettings.TotalCoin != 0)
+                _coinSettings.TotalCoin = 0;
             foreach (var item in _items)
             {
                 //*TODO : daha opitmize olabilir
@@ -39,14 +43,20 @@ namespace Item.InventoryManager
                 _itemCoin.text = item.Coin.ToString();
                 _itemCount.text = item.FishCount.ToString();
 
+
                 itemName.text = item.ItemName;
                 itemIcon.sprite = item.Icon;
+                _coinSettings.TotalCoin += item.Coin;
 
                 _coinText.Add(_objnewItem.transform.Find("Coin/CoinTEXT").GetComponent<TextMeshProUGUI>());
+
             }
-
+            _totalCoinText.text = _coinSettings.TotalCoin.ToString();
         }
-
+        private void Update()
+        {
+            print(_coinSettings.TotalCoin.ToString());
+        }
         public void Add(ItemSettings item, int CoinValue, int FishCount)
         {
             _items.Add(item);
@@ -70,6 +80,7 @@ namespace Item.InventoryManager
         {
             // TODO : Daha optiimize bir yol bul
             // Time.timeScale = 0f;
+            _coinSettings.TotalCoin = 0;
             for (int i = 0; i < _items.Count; i++)
             {
 
@@ -82,7 +93,9 @@ namespace Item.InventoryManager
             for (int i = 0; i < _coinText.Count; i++)
             {
                 _coinText[i].text = _items[i].Coin.ToString();
+                _coinSettings.TotalCoin += _items[i].Coin;
             }
+            _totalCoinText.text = _coinSettings.TotalCoin.ToString();
         }
 
 
