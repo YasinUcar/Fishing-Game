@@ -15,12 +15,21 @@ namespace Audio.Manager
         }
         private void Start()
         {
+            UnMuteSound();
         }
-        
+
         public void PlayAudio(AudioClip clip)
         {
             _audioSource.clip = clip;
             _audioSource.Play();
+        }
+        public void MuteSound()
+        {
+            AudioListener.pause = true;
+        }
+        public void UnMuteSound()
+        {
+            AudioListener.pause = false;
         }
     }
 }
