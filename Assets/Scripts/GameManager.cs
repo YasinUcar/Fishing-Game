@@ -36,11 +36,10 @@ public class GameManager : MonoBehaviour
     private void FishCaught()
     {
         ShowTest();
-
-        InventoryManager.Instance.Add(_level._fishs[_randomIndexFish]);
+        InventoryManager.Instance.Add(_level._fishs[_randomIndexFish], _level._fishs[_randomIndexFish].Value, 1);
         _level._fishs[_randomIndexFish].Unlock = true;
-        InventoryManager.Instance.IncreaseCoin(_level._fishs[_randomIndexFish],
-            _level._fishs[_randomIndexFish].Value);
+        // InventoryManager.Instance.Add(_level._fishs[_randomIndexFish],
+        //   _level._fishs[_randomIndexFish].Value);
 
         LevelBar.Instance.IncreaseValue();
         RandomIndexFish();

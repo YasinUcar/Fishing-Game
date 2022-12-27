@@ -21,7 +21,7 @@ namespace Item.Settings
         {
             get
             {
-                return PlayerPrefs.GetInt("UnlockFish" + name) == 1;
+                return PlayerPrefs.GetInt("UnlockFish" + name) == 1 ? true : false;
             }
             set
             {
@@ -38,6 +38,17 @@ namespace Item.Settings
             set
             {
                 PlayerPrefs.SetInt("CoinPlus" + name, value);
+            }
+        }
+        public int FishCount
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("FishPlus" + name);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("FishPlus" + name, value);
             }
         }
 
