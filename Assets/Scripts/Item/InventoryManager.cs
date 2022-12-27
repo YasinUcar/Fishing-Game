@@ -10,27 +10,30 @@ namespace Item.InventoryManager
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager Instance;
-        [SerializeField] private List<ItemSettings> _items = new List<ItemSettings>();
-        [SerializeField] private CoinSettings _coinSettings;
         public Transform ItemContent;
         public GameObject InventoryItem;
-        private GameObject _objnewItem;
+
+        [SerializeField] private List<ItemSettings> _items = new List<ItemSettings>();
+        [SerializeField] private CoinSettings _coinSettings;
         [SerializeField] private List<TextMeshProUGUI> _coinText;
+        [SerializeField] private List<Image> _itemUnlock;
         [SerializeField] private TextMeshProUGUI _totalCoinText;
+        private GameObject _objnewItem;
+        private int _itemsListLenght;
+
 
         private void Awake()
         {
             Instance = this;
-
         }
         private void Start()
         {
             OnStart();
+            _itemsListLenght = _items.Count;
         }
         private void OnStart()
         {
-            if (_coinSettings.TotalCoin != 0)
-                _coinSettings.TotalCoin = 0;
+
             foreach (var item in _items)
             {
                 //*TODO : daha opitmize olabilir
@@ -46,9 +49,10 @@ namespace Item.InventoryManager
 
                 itemName.text = item.ItemName;
                 itemIcon.sprite = item.Icon;
-                _coinSettings.TotalCoin += item.Coin;
+
 
                 _coinText.Add(_objnewItem.transform.Find("Coin/CoinTEXT").GetComponent<TextMeshProUGUI>());
+                _itemUnlock.Add(_objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>());
 
             }
             _totalCoinText.text = _coinSettings.TotalCoin.ToString();
@@ -62,6 +66,7 @@ namespace Item.InventoryManager
             _items.Add(item);
             item.Coin += CoinValue;
             item.FishCount += FishCount;
+            _coinSettings.TotalCoin += CoinValue; //TODO : Optimize?
         }
         //TODO : DELETE
         // public void Remove(ItemSettings item)
@@ -79,15 +84,14 @@ namespace Item.InventoryManager
         public void Checked()
         {
             // TODO : Daha optiimize bir yol bul
-            // Time.timeScale = 0f;
-            _coinSettings.TotalCoin = 0;
-            for (int i = 0; i < _items.Count; i++)
+
+            for (int i = 0; i < _itemsListLenght; i++)
             {
 
                 if (_items[i].Unlock == true)
                 {
-                    var itemUnlock = _objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>();
-                    itemUnlock.color = new Color(0, 0, 0, 0); //*TODO : this changes image
+                    // var itemUnlock = _objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>();
+                    _itemUnlock[i].color = new Color(0, 0, 0, 0); //*TODO : this changes image
                 }
             }
             for (int i = 0; i < _coinText.Count; i++)

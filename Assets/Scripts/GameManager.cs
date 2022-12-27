@@ -6,6 +6,7 @@ using Item.InventoryManager;
 using Level;
 using LevelBarScroll;
 using UnityEngine.UI;
+using Audio.Manager;
 public class GameManager : MonoBehaviour
 {
 
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelSettings _level;
     [SerializeField] TextMeshProUGUI _levelText;
     [SerializeField] private Image _fishImage;
+    [SerializeField] private AudioClip _caughtSFX;
     private int _randomIndexFish;
     private void Awake()
     {
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
         _level._fishs[_randomIndexFish].Unlock = true;
         // InventoryManager.Instance.Add(_level._fishs[_randomIndexFish],
         //   _level._fishs[_randomIndexFish].Value);
-
+        AudioManager.Instance.PlayAudio(_caughtSFX);
         LevelBar.Instance.IncreaseValue();
         RandomIndexFish();
     }
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         EventManager.NextFish += FishCaught;
         EventManager.NextFish += OnStart;
+
     }
 
 }

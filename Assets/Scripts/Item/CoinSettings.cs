@@ -7,8 +7,18 @@ namespace Coin.Settings
     [CreateAssetMenu(menuName = "Coin", fileName = "New Coin Manager")]
     public class CoinSettings : ScriptableObject
     {
-
-        public int TotalCoin { get; set; }
+        //  TODO : Total coin aynı item settings'ler gibi + değerlerini içerisine alıyor buna daha uygun bir yol bul
+        public int TotalCoin
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("TotalCoin" + name);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("TotalCoin" + name, value);
+            }
+        }
 
     }
 }
