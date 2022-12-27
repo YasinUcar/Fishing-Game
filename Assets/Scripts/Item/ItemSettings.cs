@@ -7,9 +7,40 @@ namespace Item.Settings
     [CreateAssetMenu(menuName = "Items/Fish", fileName = "New Item Fish")]
     public class ItemSettings : ScriptableObject
     {
-        [SerializeField] public int id;
-        [SerializeField] public string itemName;
-        [SerializeField] private int value;
-        [SerializeField] public Sprite icon;
+        [SerializeField] private int _id;
+        public int ID { get => _id; }
+        [SerializeField] private string _itemName;
+        public string ItemName { get => _itemName; }
+        [SerializeField] private int _value;
+        public int Value { get => _value; }
+        [SerializeField] private Sprite _icon;
+        public Sprite Icon { get => _icon; set { _icon = value; } }
+
+        //*TODO : İNCELE
+        public bool Unlock
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("UnlockFish" + name) == 1;
+            }
+            set
+            {
+                PlayerPrefs.SetInt("UnlockFish" + name, value == true ? 1 : 0);
+            }
+        }
+
+        public int Coin
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("CoinPlus" + name); //burda neden 1 yok
+            }
+            set
+            {
+                PlayerPrefs.SetInt("CoinPlus" + name, value);
+            }
+        }
+
+
     }
 }

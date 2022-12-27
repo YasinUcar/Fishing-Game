@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4a268979142344db7c176325f0ae22, type: 3}
   m_Name: Red Fish
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Red Fish
-  value: 20
-  icon: {fileID: 21300000, guid: 039cdc63d3cb7d94e9cfe9a8f9b69d02, type: 3}
+  _id: 1
+  _itemName: Red Fish
+  _value: 20
+  _icon: {fileID: 21300000, guid: 039cdc63d3cb7d94e9cfe9a8f9b69d02, type: 3}
+  _unlock: 0

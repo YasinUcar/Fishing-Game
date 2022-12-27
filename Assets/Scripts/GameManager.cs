@@ -30,20 +30,29 @@ public class GameManager : MonoBehaviour
     {
         _levelText.text = _level.name;
         RandomIndexFish();
-        _fishImage.sprite = _level._fishs[_randomIndexFish].icon;
+        _fishImage.sprite = _level._fishs[_randomIndexFish].Icon;
 
     }
     private void FishCaught()
     {
-        _winLostText.enabled = true;
-        _winLostText.text = "";
+        ShowTest();
+
         InventoryManager.Instance.Add(_level._fishs[_randomIndexFish]);
+        _level._fishs[_randomIndexFish].Unlock = true;
+        InventoryManager.Instance.IncreaseCoin(_level._fishs[_randomIndexFish],
+            _level._fishs[_randomIndexFish].Value);
+
         LevelBar.Instance.IncreaseValue();
         RandomIndexFish();
     }
     int RandomIndexFish()
     {
         return _randomIndexFish = Random.Range(0, _level._fishs.Count);
+    }
+    private void ShowTest()
+    {
+        _winLostText.enabled = true;
+        _winLostText.text = "";
     }
     private void OnDestroy()
     {

@@ -9,35 +9,72 @@ namespace Item.InventoryManager
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager Instance;
-        public List<ItemSettings> Items = new List<ItemSettings>();
+        [SerializeField] private List<ItemSettings> _items = new List<ItemSettings>();
+
         public Transform ItemContent;
         public GameObject InventoryItem;
+        private GameObject _objnewItem;
+        [SerializeField] private List<TextMeshProUGUI> _coinText;
         private void Awake()
         {
             Instance = this;
+
+        }
+        private void Start()
+        {
+            OnStart();
+        }
+        private void OnStart()
+        {
+            foreach (var item in _items)
+            {
+                _objnewItem = Instantiate(InventoryItem, ItemContent);
+                var itemIcon = _objnewItem.transform.Find("Item Icon").GetComponent<Image>();
+                var itemName = _objnewItem.transform.Find("Item Name").GetComponent<TextMeshProUGUI>();
+                var _itemCoin = _objnewItem.transform.Find("Coin/CoinTEXT").GetComponent<TextMeshProUGUI>();
+                _itemCoin.text = item.Coin.ToString();
+                itemName.text = item.ItemName;
+                itemIcon.sprite = item.Icon;
+                _coinText.Add(_objnewItem.transform.Find("Coin/CoinTEXT").GetComponent<TextMeshProUGUI>());
+            }
+
+        }
+        private void Update()
+        {
+            print(_items[0].Coin.ToString());
         }
         public void Add(ItemSettings item)
         {
-            Items.Add(item);
+            _items.Add(item);
         }
         public void Remove(ItemSettings item)
         {
-            Items.Remove(item);
+            _items.Remove(item);
         }
-        public void ListItems()
+        public void IncreaseCoin(ItemSettings item, int value)
         {
-            foreach (var item in Items)
-            {
-                GameObject obj = Instantiate(InventoryItem, ItemContent);
-                var itemName = obj.transform.Find("Item Name").GetComponent<TextMeshProUGUI>();
-                var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
+            item.Coin += value;
+        }
+        public void Checked()
+        {
 
-                itemName.text = item.itemName;
-                itemIcon.sprite = item.icon;
+            // Time.timeScale = 0f;
+            for (int i = 0; i < _items.Count; i++)
+            {
+                _coinText[i].text = _items[i].Coin.ToString(); ;
+                if (_items[i].Unlock == true)
+                {
+                    var itemUnlock = _objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>();
+                    itemUnlock.sprite = default; //*TODO : this changes image
+
+                }
 
 
             }
         }
+
+
+
     }
 
 }
