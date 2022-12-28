@@ -19,11 +19,8 @@ namespace Settings.Manager
 
         private void Start()
         {
-            if (_settingsManagerSettings.AudioMute == false)
-                AudioManager.Instance.MuteSound();
-            else
-                AudioManager.Instance.UnMuteSound();
-            UpdateButton();
+            SoundClicker();
+
         }
         private void Update()
         {
@@ -57,23 +54,25 @@ namespace Settings.Manager
         }
         public void SoundClicker()
         {
+
             if (_settingsManagerSettings.AudioMute == false)
             {
-                _settingsManagerSettings.AudioMute = true;
                 AudioManager.Instance.MuteSound();
-
+                _settingsManagerSettings.AudioMute = true;
             }
             else
             {
-                _settingsManagerSettings.AudioMute = false;
                 AudioManager.Instance.UnMuteSound();
+                _settingsManagerSettings.AudioMute = false;
             }
+
             UpdateButton();
         }
         private void UpdateButton()
         {
             if (_settingsManagerSettings.AudioMute == false)
             {
+
                 _soundImage.sprite = _soundOnIcon;
             }
             else

@@ -17,6 +17,7 @@ namespace Settings.Manager
             {
                 PlayerPrefs.SetInt("AudioMute" + name, value == true ? 1 : 0);
             }
-        }       
+        }
+       
     }
 }

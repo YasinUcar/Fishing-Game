@@ -13,11 +13,6 @@ namespace Audio.Manager
             Instance = this;
             DontDestroyOnLoad(_audioSource);
         }
-        private void Start()
-        {
-            UnMuteSound();
-        }
-
         public void PlayAudio(AudioClip clip)
         {
             _audioSource.clip = clip;
