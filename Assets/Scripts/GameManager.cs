@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Item.InventoryManager;
-using Level;
 using LevelBarScroll;
 using UnityEngine.UI;
+using Level;
 using Audio.Manager;
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] TextMeshProUGUI _winLostText;
-    [SerializeField] private LevelSettings _level;
-    [SerializeField] TextMeshProUGUI _levelText;
-    [SerializeField] private Image _fishImage;
     [SerializeField] private AudioClip _caughtSFX;
+    [SerializeField] private Image _fishImage;
+
+    [SerializeField] private LevelSettings _level;
     private int _randomIndexFish;
     private void Awake()
     {
@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
     }
     void OnStart()
     {
-        _levelText.text = _level.name;
-        RandomIndexFish();
         _fishImage.sprite = _level._fishs[_randomIndexFish].Icon;
 
     }

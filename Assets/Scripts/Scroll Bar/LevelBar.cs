@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Level.Manager;
 namespace LevelBarScroll
 {
     public class LevelBar : MonoBehaviour
@@ -9,6 +10,7 @@ namespace LevelBarScroll
         public static LevelBar Instance;
         [SerializeField] private LevelBarSettings _LevelBarSettings;
         [SerializeField] private Scrollbar _scrollbar;
+        [SerializeField] private LevelManager _levelManager;
         private void Awake()
         {
             Instance = this;
@@ -31,9 +33,15 @@ namespace LevelBarScroll
             if (_LevelBarSettings.IncreaseValue < 1)
             {
                 _LevelBarSettings.LevelBarValue += _LevelBarSettings.IncreaseValue;
-                ScrollbarValue();
-            }
 
+            }
+            if (_LevelBarSettings.LevelBarValue >= 1)
+            {
+                OnStart();
+                print("Çalişti");
+                _levelManager.ChangeLevel();
+            }
+            ScrollbarValue();
         }
         public void ReduceValue(int number)
         {

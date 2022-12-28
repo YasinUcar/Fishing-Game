@@ -24,7 +24,7 @@ namespace Settings.Manager
         }
         private void Update()
         {
-            print(_settingsManagerSettings.AudioMute);
+            
         }
         public void ClickSettings()
         {
