@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FishingBar
   - Coin
+  - Lang
   layers:
   - Default
   - TransparentFX

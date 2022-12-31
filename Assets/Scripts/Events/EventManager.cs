@@ -6,6 +6,7 @@ public class EventManager : MonoBehaviour
 {
     public static event Action NextLevel;
     public static event Action NextFish;
+   
     bool win;
     private void Update()
     {
@@ -15,6 +16,5 @@ public class EventManager : MonoBehaviour
     {
         NextFish?.Invoke();
     }
-
-
+  
 }

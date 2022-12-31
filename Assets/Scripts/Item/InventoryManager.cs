@@ -59,7 +59,7 @@ namespace Item.InventoryManager
         }
         private void Update()
         {
-            print(_coinSettings.TotalCoin.ToString());
+//            print(_coinSettings.TotalCoin.ToString());
         }
         public void Add(ItemSettings item, int CoinValue, int FishCount)
         {

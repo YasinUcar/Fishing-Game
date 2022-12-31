@@ -30,7 +30,7 @@ namespace Level.Manager
         }
         private void Update()
         {
-            print(_levelManagerSettings.LevelCount);
+//            print(_levelManagerSettings.LevelCount);
         }
     }
 }
