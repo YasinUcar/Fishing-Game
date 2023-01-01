@@ -723,7 +723,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1069300437}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999977
+  m_Size: 0.99997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6133,7 +6133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 497825778}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1023583362}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &497825778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12069,7 +12081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0007779669}
+  m_AnchoredPosition: {x: 0, y: 0.000033909724}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1058815822
@@ -13973,7 +13985,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249200653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -14009,7 +14021,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1462316960}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1249200657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16695,7 +16719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1462316961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17836,7 +17860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575153289}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -17872,7 +17896,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1023583362}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1575153292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19874,7 +19910,7 @@ GameObject:
   - component: {fileID: 1779551325}
   - component: {fileID: 1779551324}
   m_Layer: 5
-  m_Name: StartText
+  m_Name: tapToStartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22842,12 +22878,11 @@ MonoBehaviour:
   _copyObject: {fileID: 8007898106530726652, guid: 880fcea1ab4f26c43ac04290413afe8f, type: 3}
   _itemContent: {fileID: 1058815821}
   _languageManagerSettings: {fileID: 11400000, guid: 30c8d7d2c37b2a744af7db7b470f3de3, type: 2}
-  _settingsEng: {fileID: 1749464549}
-  _langTextEng: {fileID: 1058503218}
-  taptoStartEng: {fileID: 1779551324}
-  _settingsTurkish: {fileID: 1749464549}
-  _langTextTurkish: {fileID: 1058503218}
-  taptoStartTurkish: {fileID: 1779551324}
+  _itemUnlock: []
+  _settingsText: {fileID: 1749464549}
+  _langText: {fileID: 687402521}
+  _taptoStartText: {fileID: 1779551324}
+  _langButtonText: {fileID: 1058503218}
 --- !u!1001 &2001717650
 PrefabInstance:
   m_ObjectHideFlags: 0

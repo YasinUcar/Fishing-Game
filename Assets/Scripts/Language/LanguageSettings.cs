@@ -15,6 +15,17 @@ namespace Language.Manager
         [SerializeField] private string _langText;
         public string LangText { get => _langText; }
         [SerializeField] private string taptoStart;
-        public string TapToStart { get=>taptoStart; }
+        public string TapToStart { get => taptoStart; }
+        public bool Unlock
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("UnlockTrick" + name) == 1 ? true : false;
+            }
+            set
+            {
+                PlayerPrefs.SetInt("UnlockTrick" + name, value == true ? 1 : 0);
+            }
+        }
     }
 }

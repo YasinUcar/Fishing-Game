@@ -18,5 +18,6 @@ namespace Language.Manager
                 PlayerPrefs.SetString("CurrentLang" + name, value);
             }
         }
+        
     }
 }
