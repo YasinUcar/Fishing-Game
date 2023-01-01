@@ -12,12 +12,14 @@ namespace Language.Manager
         [SerializeField] private Transform _itemContent;
         [SerializeField] private LanguageManagerSettings _languageManagerSettings;
         [SerializeField] private List<Image> _itemUnlock;
+     
         private GameObject _objNewItem;
         [SerializeField]
-        private TextMeshProUGUI _settingsText, _langText, _taptoStartText, _langButtonText;
+        private TextMeshProUGUI _settingsText, _langText, _taptoStartText, _langButtonText, _characterButtonText, _rodButtonText;
 
         private void Start()
         {
+            
             OnStart();
             ChangeTexts(_languageManagerSettings.CurrentLang);
         }
@@ -56,7 +58,8 @@ namespace Language.Manager
                     _settingsText.text = english.SettingsText;
                     _taptoStartText.text = english.TapToStart;
                     _langButtonText.text = english.LangText;
-
+                    _characterButtonText.text = english.ChacterButtonText;
+                    _rodButtonText.text = english.RodButtonText;
                     _languageManagerSettings._languageSettings[0].Unlock = true;
                     _languageManagerSettings._languageSettings[1].Unlock = false;
 
@@ -64,12 +67,15 @@ namespace Language.Manager
                 case "Turkish": //Turkish
                     var turkish = _languageManagerSettings._languageSettings[1];
                     _languageManagerSettings.CurrentLang = "Turkish";
-                    _languageManagerSettings._languageSettings[0].Unlock = false;
-                    _languageManagerSettings._languageSettings[1].Unlock = true;
+                    _characterButtonText.text = turkish.ChacterButtonText;
                     _settingsText.text = turkish.SettingsText;
                     _langText.text = turkish.LangText;
                     _taptoStartText.text = turkish.TapToStart;
                     _langButtonText.text = turkish.LangText;
+                    _rodButtonText.text = turkish.RodButtonText;
+
+                    _languageManagerSettings._languageSettings[0].Unlock = false;
+                    _languageManagerSettings._languageSettings[1].Unlock = true;
                     break;
                 default:
                     goto case "English";

@@ -16,6 +16,10 @@ namespace Language.Manager
         public string LangText { get => _langText; }
         [SerializeField] private string taptoStart;
         public string TapToStart { get => taptoStart; }
+        [SerializeField] private string _characterButtonText;
+        public string ChacterButtonText { get => _characterButtonText; }
+        [SerializeField] private string _rodButtonText;
+        public string RodButtonText { get => _rodButtonText; }
         public bool Unlock
         {
             get

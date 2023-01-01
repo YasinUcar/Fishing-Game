@@ -16,3 +16,5 @@ MonoBehaviour:
   _settingsText: Settings
   _langText: Language
   taptoStart: TAP TO START
+  _characterButtonText: 'Character '
+  _rodButtonText: Rod

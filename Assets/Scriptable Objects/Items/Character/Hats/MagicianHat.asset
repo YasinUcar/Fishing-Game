@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fa7a5ca671b1848bb5c57b25afcf77, type: 3}
-  m_Name: Turkish
+  m_Script: {fileID: 11500000, guid: 4dc2d046672c0b74789b5048779ef9d3, type: 3}
+  m_Name: MagicianHat
   m_EditorClassIdentifier: 
-  _langName: Turkish
-  _settingsText: Ayarlar
-  _langText: Diller
-  taptoStart: "BA\u015ELATMAK \u0130\xC7\u0130N DOKUN"
-  _characterButtonText: Karakter
-  _rodButtonText: Olta
+  _id: 4
+  _itemName: MagicianHat
+  _value: 750
+  _icon: {fileID: 21300000, guid: 8f4596c37ec84814c9a3a47ab662b94b, type: 3}
