@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 3457204980853584265}
   - component: {fileID: 3457204980853584264}
   - component: {fileID: 3457204980853584263}
+  - component: {fileID: 3383735459273139634}
   m_Layer: 5
   m_Name: ItemChacterShop
   m_TagString: Untagged
@@ -410,4 +411,28 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3457204980853584264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3383735459273139634}
+        m_TargetAssemblyTypeName: Store.Clicker.ClickerItem, Assembly-CSharp
+        m_MethodName: MouseClickItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3383735459273139634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457204980853584261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ae79b681b8c5e46bf4e05333abf8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

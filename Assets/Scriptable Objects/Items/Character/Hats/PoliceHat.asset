@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PoliceHat
   m_EditorClassIdentifier: 
   _id: 2
-  _itemName: PoliseCap
+  _itemName: PoliceHat
   _value: 1500
   _icon: {fileID: 21300000, guid: 1dafef9d503844740b539b35d629aa80, type: 3}

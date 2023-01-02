@@ -18,7 +18,8 @@ namespace Store.Manager
         [SerializeField] private StoreManagerSettings _storeManagerSettings;
         //[SerializeField] private List<GameObject> _hadItems;
         [SerializeField] private GameObject[] _hadItems;
-        
+        [SerializeField] private GameObject[] _rodItems;
+
         [SerializeField]
         private GameObject _objChacterItem, _objRodItem;
 
@@ -28,6 +29,8 @@ namespace Store.Manager
             SortChacterItems(_characterItemRodSettings);
             OnStart();
             BuyItem(_storeManagerSettings.CurrentHad);
+            BuyRod(_storeManagerSettings.CurrentRod);
+
         }
 
         void OnStart()
@@ -76,9 +79,13 @@ namespace Store.Manager
                 }
             }
         }
-        public void Click(string item)
+        public void ClickItem(string item)
         {
             BuyItem(item);
+        }
+        public void ClickRod(string item)
+        {
+            BuyRod(item);
         }
         void BuyItem(string item)
         {
@@ -86,15 +93,69 @@ namespace Store.Manager
             {
                 case "CowboyHat":
                     _storeManagerSettings.CurrentHad = "CowboyHat";
-                    ChangeWeapon("CowboyHat");
+                    ChangeItem("CowboyHat");
+                    break;
+                case "Crown":
+                    _storeManagerSettings.CurrentHad = "Crown";
+                    ChangeItem("Crown");
+                    break;
+                case "MagicianHat":
+                    _storeManagerSettings.CurrentHad = "MagicianHat";
+                    ChangeItem("MagicianHat");
+                    break;
+                case "PijamaHat":
+                    _storeManagerSettings.CurrentHad = "PijamaHat";
+                    ChangeItem("PijamaHat");
+                    break;
+                case "PillboxHat":
+                    _storeManagerSettings.CurrentHad = "PillboxHat";
+                    ChangeItem("PillboxHat");
+                    break;
+                case "PoliceHat":
+                    _storeManagerSettings.CurrentHad = "PoliceHat";
+                    ChangeItem("PoliceHat");
+                    break;
+                case "ShowerCap":
+                    _storeManagerSettings.CurrentHad = "ShowerCap";
+                    ChangeItem("ShowerCap");
+                    break;
+                case "SombreroHat":
+                    _storeManagerSettings.CurrentHad = "SombreroHat";
+                    ChangeItem("SombreroHat");
+                    break;
+                case "VikingHat":
+                    _storeManagerSettings.CurrentHad = "VikingHat";
+                    ChangeItem("VikingHat");
+                    break;
+                case "MinerHat":
+                    _storeManagerSettings.CurrentHad = "MinerHat";
+                    ChangeItem("MinerHat");
                     break;
                 default:
                     _storeManagerSettings.CurrentHad = "Empty";
-                    ChangeWeapon("Empty");
+                    ChangeItem("Empty");
                     break;
             }
         }
-        void ChangeWeapon(string weaponName)
+        void BuyRod(string item)
+        {
+            switch (item)
+            {
+                case "Blue Rod":
+                    _storeManagerSettings.CurrentRod = "Blue Rod";
+                    ChangeRod("Blue Rod");
+                    break;
+                case "Green Rod":
+                    _storeManagerSettings.CurrentRod = "Green Rod";
+                    ChangeRod("Green Rod");
+                    break;
+                default:
+                    _storeManagerSettings.CurrentRod = "Main Rod";
+                    ChangeRod("Main Rod");
+                    break;
+            }
+        }
+        void ChangeItem(string weaponName)
         {
             for (int i = 0; i < _hadItems.Length; i++)
             {
@@ -105,6 +166,20 @@ namespace Store.Manager
                 else
                 {
                     _hadItems[i].SetActive(false);
+                }
+            }
+        }
+        void ChangeRod(string rodName)
+        {
+            for (int i = 0; i < _rodItems.Length; i++)
+            {
+                if (_rodItems[i].gameObject.name == rodName)
+                {
+                    _rodItems[i].SetActive(true);
+                }
+                else
+                {
+                    _rodItems[i].SetActive(false);
                 }
             }
         }

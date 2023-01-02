@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3578027958400782588}
   - component: {fileID: 6285416407862083634}
   - component: {fileID: 7784583274295388851}
+  - component: {fileID: 2914016634582464689}
   m_Layer: 5
   m_Name: ItemRodShop
   m_TagString: Untagged
@@ -123,7 +124,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6285416407862083634}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2914016634582464689}
+        m_TargetAssemblyTypeName: Store.Clicker.ClickerItem, Assembly-CSharp
+        m_MethodName: MouseClickRod
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2914016634582464689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426121940803391481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ae79b681b8c5e46bf4e05333abf8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5590453229517568123
 GameObject:
   m_ObjectHideFlags: 0

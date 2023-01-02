@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CrownHat
   m_EditorClassIdentifier: 
   _id: 3
-  _itemName: CrownHat
+  _itemName: Crown
   _value: 1000
   _icon: {fileID: 21300000, guid: ad7b9a90ac861d244b52597b0013421e, type: 3}

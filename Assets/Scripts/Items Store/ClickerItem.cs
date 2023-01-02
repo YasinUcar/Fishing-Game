@@ -6,16 +6,20 @@ namespace Store.Clicker
 {
     public class ClickerItem : MonoBehaviour
     {
-        [SerializeField] private StoreManager _storeManager;
+        private StoreManager _storeManager;
 
 
         private void Awake()
         {
             _storeManager = GameObject.FindGameObjectWithTag("Store").GetComponent<StoreManager>();
         }
-        public void MouseClick()
+        public void MouseClickItem()
         {
-            _storeManager.Click(this.gameObject.name);
+            _storeManager.ClickItem(this.gameObject.name);
+        }
+        public void MouseClickRod()
+        {
+            _storeManager.ClickRod(this.gameObject.name);
         }
     }
 }
