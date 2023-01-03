@@ -17,5 +17,19 @@ namespace Item.Character
         public int Value { get => _value; }
         [SerializeField] private Sprite _icon;
         public Sprite Icon { get => _icon; }
+        [SerializeField] private float _fishingRodPower;
+        public float FishingRodPower { get => _fishingRodPower; }
+        public bool Unlock
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("UnlockFish" + name) == 1 ? true : false;
+            }
+            set
+            {
+                PlayerPrefs.SetInt("UnlockFish" + name, value == true ? 1 : 0);
+
+            }
+        }
     }
 }

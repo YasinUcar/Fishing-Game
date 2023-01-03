@@ -5,6 +5,7 @@ using Item.Character;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using Coin.Manager;
 
 namespace Store.Manager
 {
@@ -19,6 +20,9 @@ namespace Store.Manager
         //[SerializeField] private List<GameObject> _hadItems;
         [SerializeField] private GameObject[] _hadItems;
         [SerializeField] private GameObject[] _rodItems;
+        [SerializeField] CharacterItemSettings[] _listScriptableObjectsChacter;
+        [SerializeField] CharacterItemSettings[] _listScriptableObjectsRod;
+        [SerializeField] private List<Image> _itemUnlockItems, _itemUnlockRod;
 
         [SerializeField]
         private GameObject _objChacterItem, _objRodItem;
@@ -46,6 +50,9 @@ namespace Store.Manager
                 _objChacterItem.name = item.ItemName;
                 itemCoinText.text = item.Value.ToString();
                 itemIcon.sprite = item.Icon;
+
+                _itemUnlockItems.Add(_objChacterItem.transform.Find("ItemImage/UnlockImage").GetComponent<Image>());
+
             }
             foreach (var item in _characterItemRodSettings)
             {
@@ -56,7 +63,10 @@ namespace Store.Manager
                 _objRodItem.name = item.ItemName;
                 itemCoinText.text = item.Value.ToString();
                 itemIcon.sprite = item.Icon;
+
+                _itemUnlockRod.Add(_objRodItem.transform.Find("ItemImage/UnlockImage").GetComponent<Image>());
             }
+            CheckedUnlockItemImages();
         }
         // void InstantiateHads()
         // {
@@ -89,47 +99,99 @@ namespace Store.Manager
         }
         void BuyItem(string item)
         {
+
             switch (item)
             {
+                //TODO : AYNI BOOL DEĞİŞKEN İSMİ VEREMİYOR ÜSTE TANIMLASAM KABUL ETMİYOR?
                 case "CowboyHat":
-                    _storeManagerSettings.CurrentHad = "CowboyHat";
-                    ChangeItem("CowboyHat");
+                    bool isChange = CheckedUnlockItem(_listScriptableObjectsChacter[0]);
+                    if (isChange == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "CowboyHat";
+                        ChangeItem("CowboyHat");
+                    }
+
                     break;
                 case "Crown":
-                    _storeManagerSettings.CurrentHad = "Crown";
-                    ChangeItem("Crown");
+                    bool isChange2 = CheckedUnlockItem(_listScriptableObjectsChacter[1]);
+                    if (isChange2 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "Crown";
+                        ChangeItem("Crown");
+                    }
+
                     break;
                 case "MagicianHat":
-                    _storeManagerSettings.CurrentHad = "MagicianHat";
-                    ChangeItem("MagicianHat");
+                    bool isChange3 = CheckedUnlockItem(_listScriptableObjectsChacter[2]);
+                    if (isChange3 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "MagicianHat";
+                        ChangeItem("MagicianHat");
+                    }
+
                     break;
                 case "PijamaHat":
-                    _storeManagerSettings.CurrentHad = "PijamaHat";
-                    ChangeItem("PijamaHat");
+                    bool isChange4 = CheckedUnlockItem(_listScriptableObjectsChacter[3]);
+                    if (isChange4 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "PijamaHat";
+                        ChangeItem("PijamaHat");
+                    }
+
                     break;
                 case "PillboxHat":
-                    _storeManagerSettings.CurrentHad = "PillboxHat";
-                    ChangeItem("PillboxHat");
+                    bool isChange5 = CheckedUnlockItem(_listScriptableObjectsChacter[4]);
+                    if (isChange5 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "PillboxHat";
+                        ChangeItem("PillboxHat");
+                    }
+
                     break;
                 case "PoliceHat":
-                    _storeManagerSettings.CurrentHad = "PoliceHat";
-                    ChangeItem("PoliceHat");
+                    bool isChange6 = CheckedUnlockItem(_listScriptableObjectsChacter[5]);
+                    if (isChange6 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "PoliceHat";
+                        ChangeItem("PoliceHat");
+                    }
+
                     break;
                 case "ShowerCap":
-                    _storeManagerSettings.CurrentHad = "ShowerCap";
-                    ChangeItem("ShowerCap");
+                    bool isChange7 = CheckedUnlockItem(_listScriptableObjectsChacter[6]);
+                    if (isChange7 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "ShowerCap";
+                        ChangeItem("ShowerCap");
+                    }
+
                     break;
                 case "SombreroHat":
-                    _storeManagerSettings.CurrentHad = "SombreroHat";
-                    ChangeItem("SombreroHat");
+                    bool isChange8 = CheckedUnlockItem(_listScriptableObjectsChacter[7]);
+                    if (isChange8 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "SombreroHat";
+                        ChangeItem("SombreroHat");
+                    }
+
                     break;
                 case "VikingHat":
-                    _storeManagerSettings.CurrentHad = "VikingHat";
-                    ChangeItem("VikingHat");
+                    bool isChange9 = CheckedUnlockItem(_listScriptableObjectsChacter[8]);
+                    if (isChange9 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "VikingHat";
+                        ChangeItem("VikingHat");
+                    }
+
                     break;
                 case "MinerHat":
-                    _storeManagerSettings.CurrentHad = "MinerHat";
-                    ChangeItem("MinerHat");
+                    bool isChange10 = CheckedUnlockItem(_listScriptableObjectsChacter[9]);
+                    if (isChange10 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "MinerHat";
+                        ChangeItem("MinerHat");
+                    }
+
                     break;
                 default:
                     _storeManagerSettings.CurrentHad = "Empty";
@@ -142,12 +204,20 @@ namespace Store.Manager
             switch (item)
             {
                 case "Blue Rod":
-                    _storeManagerSettings.CurrentRod = "Blue Rod";
-                    ChangeRod("Blue Rod");
+                    bool isChange = CheckedUnlockItem(_listScriptableObjectsRod[0]);
+                    if (isChange == true)
+                    {
+                        _storeManagerSettings.CurrentRod = "Blue Rod";
+                        ChangeRod("Blue Rod");
+                    }
                     break;
                 case "Green Rod":
-                    _storeManagerSettings.CurrentRod = "Green Rod";
-                    ChangeRod("Green Rod");
+                    bool isChange2 = CheckedUnlockItem(_listScriptableObjectsRod[1]);
+                    if (isChange2 == true)
+                    {
+                        _storeManagerSettings.CurrentRod = "Green Rod";
+                        ChangeRod("Green Rod");
+                    }
                     break;
                 default:
                     _storeManagerSettings.CurrentRod = "Main Rod";
@@ -180,6 +250,42 @@ namespace Store.Manager
                 else
                 {
                     _rodItems[i].SetActive(false);
+                }
+            }
+        }
+        //TODO : Kötü bir yapı nesneleri çağırmak için ayrıca array kulanıyorum ve bunlar manuel akılda tutulmak zorunda
+        bool CheckedUnlockItem(CharacterItemSettings character)
+        {
+            if (character.Unlock == false && CoinManager.Instance.CurrentCoin() >= character.Value)
+            {
+                character.Unlock = true;
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        void CheckedUnlockItemImages()
+        {
+            for (int i = 0; i < _characterItemSettings.Count; i++)
+            {
+
+                if (_characterItemSettings[i].Unlock == true)
+                {
+                    // var itemUnlock = _objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>();
+                    _itemUnlockItems[i].color = new Color(0, 0, 0, 0); //*TODO : this changes image
+                }
+            }
+            for (int i = 0; i < _characterItemRodSettings.Count; i++)
+            {
+
+                if (_characterItemRodSettings[i].Unlock == true)
+                {
+                    // var itemUnlock = _objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>();
+                    _itemUnlockRod[i].color = new Color(0, 0, 0, 0); //*TODO : this changes image
                 }
             }
         }

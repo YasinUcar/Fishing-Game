@@ -28,9 +28,17 @@ namespace StartManager
             gameObject.SetActive(value);
             //}
         }
-        public void TapToStart()
+        public void TapToStart(bool endIdleAnimation)
         {
-            DisableOrEnable(true, _otherObjects);
+            if (endIdleAnimation == true)
+            {
+                DisableOrEnable(true, _otherObjects);
+            }
+
+            else
+            {
+                EventManager.StartGameEvent();
+            }
             DisableOrEnable(false, _startMenuObjects);
         }
     }

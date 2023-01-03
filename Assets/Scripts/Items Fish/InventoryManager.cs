@@ -5,6 +5,7 @@ using Item.Settings;
 using UnityEngine.UI;
 using TMPro;
 using Coin.Settings;
+using Coin.Manager;
 namespace Item.InventoryManager
 {
     public class InventoryManager : MonoBehaviour
@@ -55,11 +56,12 @@ namespace Item.InventoryManager
                 _itemUnlock.Add(_objnewItem.transform.Find("Locked/Item Lock").GetComponent<Image>());
 
             }
-            _totalCoinText.text = _coinSettings.TotalCoin.ToString();
+            // _totalCoinText.text = _coinSettings.TotalCoin.ToString();
+            CoinManager.Instance.ChangesCoinText();
         }
         private void Update()
         {
-//            print(_coinSettings.TotalCoin.ToString());
+            //            print(_coinSettings.TotalCoin.ToString());
         }
         public void Add(ItemSettings item, int CoinValue, int FishCount)
         {
@@ -99,7 +101,8 @@ namespace Item.InventoryManager
                 _coinText[i].text = _items[i].Coin.ToString();
                 _coinSettings.TotalCoin += _items[i].Coin;
             }
-            _totalCoinText.text = _coinSettings.TotalCoin.ToString();
+          
+            CoinManager.Instance.ChangesCoinText();
         }
 
 
