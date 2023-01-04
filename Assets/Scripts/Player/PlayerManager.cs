@@ -28,6 +28,10 @@ namespace Player.Manager
             // StartingGameAnimation();
 
         }
+        public void ResetTriger()
+        {
+            _animator.ResetTrigger("Victory");
+        }
         void TriggerVictory()
         {
             _animator.SetTrigger("Victory");

@@ -20,7 +20,10 @@ namespace StartManager
             DisableOrEnable(false, _otherObjects);
             _startMenuObjects.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.25f);
         }
-
+        public void EnableMainCanvas()
+        {
+            DisableOrEnable(true, _startMenuObjects);
+        }
         private void DisableOrEnable(bool value, GameObject gameObject) //disable other game objects list
         {
 
