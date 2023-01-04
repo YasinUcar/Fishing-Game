@@ -9,7 +9,7 @@ namespace Language.Manager
         [SerializeField] private string _langName;
         public string LangName { get => _langName; }
 
-        [Header("UI")]
+        [Header("Main Menu UI")]
         [SerializeField] private string _settingsText;
         public string SettingsText { get => _settingsText; }
         [SerializeField] private string _langText;
@@ -20,6 +20,9 @@ namespace Language.Manager
         public string ChacterButtonText { get => _characterButtonText; }
         [SerializeField] private string _rodButtonText;
         public string RodButtonText { get => _rodButtonText; }
+        [Header("End Screen UI")]
+        [SerializeField] private string _endScreenWinLostText;
+        public string EndScreenWinLostText { get => _endScreenWinLostText; }
         public bool Unlock
         {
             get

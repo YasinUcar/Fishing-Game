@@ -18,3 +18,4 @@ MonoBehaviour:
   taptoStart: "BA\u015ELATMAK \u0130\xC7\u0130N DOKUN"
   _characterButtonText: Karakter
   _rodButtonText: Olta
+  _endScreenWinLostText: "Yakalad\u0131n!"

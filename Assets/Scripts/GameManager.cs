@@ -7,6 +7,7 @@ using LevelBarScroll;
 using UnityEngine.UI;
 using Level;
 using Audio.Manager;
+using Score.Manager;
 public class GameManager : MonoBehaviour
 {
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         // InventoryManager.Instance.Add(_level._fishs[_randomIndexFish],
         //   _level._fishs[_randomIndexFish].Value);
         AudioManager.Instance.PlayAudio(_caughtSFX);
+        ScoreManager.Instance.IncreaseScore(_level._fishs[_randomIndexFish].ItemScore);
         LevelBar.Instance.IncreaseValue();
         RandomIndexFish();
     }

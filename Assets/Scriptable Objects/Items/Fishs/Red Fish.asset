@@ -16,4 +16,4 @@ MonoBehaviour:
   _itemName: Red Fish
   _value: 20
   _icon: {fileID: 21300000, guid: 039cdc63d3cb7d94e9cfe9a8f9b69d02, type: 3}
-  _unlock: 0
+  _itemScore: 200

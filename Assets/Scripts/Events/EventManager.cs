@@ -16,5 +16,9 @@ public class EventManager : MonoBehaviour
     {
         StartGame?.Invoke();
     }
+    public static void StartNextLevel()
+    {
+        NextLevel?.Invoke();
+    }
 
 }

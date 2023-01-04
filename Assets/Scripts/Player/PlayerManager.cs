@@ -18,6 +18,7 @@ namespace Player.Manager
         {
             EventManager.NextFish += TriggerCek;
             EventManager.StartGame += StartingGameAnimation;
+            EventManager.NextLevel += TriggerVictory;
         }
 
         public void TriggerCek()
@@ -26,6 +27,10 @@ namespace Player.Manager
             // _startMenuManager.TapToStart(false);
             // StartingGameAnimation();
 
+        }
+        void TriggerVictory()
+        {
+            _animator.SetTrigger("Victory");
         }
         void StartingGameAnimation()
         {
@@ -44,6 +49,8 @@ namespace Player.Manager
         {
             EventManager.NextFish -= TriggerCek;
             EventManager.StartGame -= StartingGameAnimation;
+            EventManager.NextLevel += TriggerVictory;
         }
+
     }
 }

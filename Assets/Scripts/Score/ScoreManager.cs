@@ -10,17 +10,30 @@ namespace Score.Manager
     {
         public static ScoreManager Instance;
 
-        [SerializeField] private LevelSettings _levelManager;
+
         [SerializeField] private ScoreManagerSettings _scoreManagerSettings;
         [SerializeField] private Image[] _scoreIcons;
-
+        [SerializeField] private GameObject _endLevelCanvas;
         private void Awake()
         {
             Instance = this;
         }
         private void Start()
         {
+            EventManager.NextLevel += EnableEndLevelCanvas;
+        }
+        public void EnableEndLevelCanvas()
+        {
+            _endLevelCanvas.SetActive(true);
+        }
 
+        public void IncreaseScore(float score)
+        {
+            _scoreManagerSettings.CurrentScore += score;
+        }
+        public void ReduceScore(int score)
+        {
+            _scoreManagerSettings.CurrentScore -= score;
         }
         public void CheckScore(LevelSettings levelSettings)
         {
@@ -52,6 +65,10 @@ namespace Score.Manager
 
                 }
             }
+        }
+        private void OnDestroy()
+        {
+            EventManager.NextLevel -= EnableEndLevelCanvas;
         }
     }
 }

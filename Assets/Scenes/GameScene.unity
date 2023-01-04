@@ -5598,7 +5598,7 @@ GameObject:
   - component: {fileID: 400656432}
   - component: {fileID: 400656431}
   m_Layer: 5
-  m_Name: Lang Button Text
+  m_Name: Win Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18435,12 +18435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d1d5251f37a0a438a5a4722cbbe8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelManager: {fileID: 0}
-  _scoreManagerSettings: {fileID: 0}
+  _scoreManagerSettings: {fileID: 11400000, guid: 10600126eb0ce0c468d85bb065b87be6, type: 2}
   _scoreIcons:
   - {fileID: 614996653}
   - {fileID: 1087188058}
   - {fileID: 1319565137}
+  _endLevelCanvas: {fileID: 1817978994}
 --- !u!1001 &1375820869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24359,7 +24359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1817978995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27258,6 +27258,7 @@ MonoBehaviour:
   _langButtonText: {fileID: 1058503218}
   _characterButtonText: {fileID: 1750978290}
   _rodButtonText: {fileID: 1119725298}
+  _winLostText: {fileID: 400656431}
 --- !u!1001 &2001717650
 PrefabInstance:
   m_ObjectHideFlags: 0

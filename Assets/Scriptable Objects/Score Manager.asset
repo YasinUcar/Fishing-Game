@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4a268979142344db7c176325f0ae22, type: 3}
-  m_Name: Yellow Fish
+  m_Script: {fileID: 11500000, guid: 50a511063fde0a247bd2bc9daa42e07a, type: 3}
+  m_Name: Score Manager
   m_EditorClassIdentifier: 
-  _id: 2
-  _itemName: Yellow Fish
-  _value: 30
-  _icon: {fileID: 21300000, guid: be236a2f6d702d8498a07462b0a4c971, type: 3}
-  _itemScore: 400
+  _currentScore: 0

@@ -16,4 +16,4 @@ MonoBehaviour:
   _itemName: Blue Fish
   _value: 10
   _icon: {fileID: 21300000, guid: 2b13c305215a42d49b528d99a69bdb7d, type: 3}
-  _unlock: 0
+  _itemScore: 100

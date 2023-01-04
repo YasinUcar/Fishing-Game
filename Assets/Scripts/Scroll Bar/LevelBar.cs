@@ -18,7 +18,7 @@ namespace LevelBarScroll
         void Start()
         {
             OnStart();
-
+            EventManager.NextLevel += OnStart;
         }
         void OnStart()
         {
@@ -38,8 +38,9 @@ namespace LevelBarScroll
             if (_LevelBarSettings.LevelBarValue >= 1)
             {
                 OnStart();
-                print("Çalişti");
-                _levelManager.ChangeLevel();
+                
+                EventManager.StartNextLevel();
+                //_levelManager.ChangeLevel();
             }
             ScrollbarValue();
         }
@@ -48,7 +49,10 @@ namespace LevelBarScroll
             _LevelBarSettings.LevelBarValue -= _LevelBarSettings.ReduceValue;
             ScrollbarValue();
         }
-
+        private void OnDestroy()
+        {
+            EventManager.NextLevel -= OnStart;
+        }
 
     }
 

@@ -12,8 +12,9 @@ namespace StartManager
         void Start()
         {
             OnStart();
-
+            EventManager.NextLevel += OnStart;
         }
+
         private void OnStart()
         {
             DisableOrEnable(false, _otherObjects);
@@ -34,12 +35,17 @@ namespace StartManager
             {
                 DisableOrEnable(true, _otherObjects);
             }
-            
+
             else
             {
                 EventManager.StartGameEvent();
             }
             DisableOrEnable(false, _startMenuObjects);
         }
+        private void OnDestroy()
+        {
+            EventManager.NextLevel -= OnStart;
+        }
+
     }
 }

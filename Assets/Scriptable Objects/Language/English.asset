@@ -18,3 +18,4 @@ MonoBehaviour:
   taptoStart: TAP TO START
   _characterButtonText: 'Character '
   _rodButtonText: Rod
+  _endScreenWinLostText: You Caught!
