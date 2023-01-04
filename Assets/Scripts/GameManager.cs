@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
     private void FishCaught()
     {
-        ShowTest();
+
         InventoryManager.Instance.Add(_level._fishs[_randomIndexFish], _level._fishs[_randomIndexFish].Value, 1);
         _level._fishs[_randomIndexFish].Unlock = true;
         // InventoryManager.Instance.Add(_level._fishs[_randomIndexFish],
@@ -48,11 +48,7 @@ public class GameManager : MonoBehaviour
     {
         return _randomIndexFish = Random.Range(0, _level._fishs.Count);
     }
-    private void ShowTest()
-    {
-        _winLostText.enabled = true;
-        _winLostText.text = "";
-    }
+
     private void OnDestroy()
     {
         EventManager.NextFish += FishCaught;

@@ -26,6 +26,7 @@ namespace Item.InventoryManager
         private void Awake()
         {
             Instance = this;
+            _coinSettings.TotalCoin = 5000;
         }
         private void Start()
         {
@@ -101,7 +102,7 @@ namespace Item.InventoryManager
                 _coinText[i].text = _items[i].Coin.ToString();
                 _coinSettings.TotalCoin += _items[i].Coin;
             }
-          
+
             CoinManager.Instance.ChangesCoinText();
         }
 

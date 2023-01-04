@@ -23,6 +23,8 @@ namespace Player.Manager
         public void TriggerCek()
         {
             _animator.SetTrigger("Çek");
+            // _startMenuManager.TapToStart(false);
+            // StartingGameAnimation();
 
         }
         void StartingGameAnimation()

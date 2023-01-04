@@ -15,6 +15,8 @@ namespace Item.Settings
         public int Value { get => _value; }
         [SerializeField] private Sprite _icon;
         public Sprite Icon { get => _icon; set { _icon = value; } }
+        [SerializeField] private float _itemScore;
+        public float ItemScore { get => _itemScore; set => _itemScore = value; }
 
         //*TODO : İNCELE
         public bool Unlock

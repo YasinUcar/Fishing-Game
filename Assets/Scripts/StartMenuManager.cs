@@ -34,7 +34,7 @@ namespace StartManager
             {
                 DisableOrEnable(true, _otherObjects);
             }
-
+            
             else
             {
                 EventManager.StartGameEvent();
