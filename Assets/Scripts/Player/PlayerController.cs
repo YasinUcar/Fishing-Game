@@ -11,7 +11,8 @@ namespace Player.Controller
     {
         [SerializeField] private ProgressBarSettings _progressBarSettings;
         [SerializeField] private Scrollbar _progressBarScrool;
-        [SerializeField] private RectTransform _playerBarScrool;
+        [SerializeField] private RectTransform _playerBarScroolTransform;
+        [SerializeField] private Scrollbar _playerBarScrool;
 
         private bool _isExit;
         Vector3 startPlaybarTranform;
@@ -22,6 +23,7 @@ namespace Player.Controller
             OnStart();
             EventManager.NextFish += OnStart;
             EventManager.StartGame += ResetProgressBarStartGame;
+          
         }
         void OnStart()
         {
@@ -30,9 +32,12 @@ namespace Player.Controller
         }
         void ResetProgressBarStartGame()
         {
+            _progressBarSettings.ProgressBarValue = 0;
             _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
             _fishCaught = false;
+            _playerBarScrool.value = 0;
             _playerBarScrool.transform.position = startPlaybarTranform;
+
         }
         IEnumerator ResetProgressBar()
         {

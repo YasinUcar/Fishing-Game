@@ -14,23 +14,41 @@ namespace Level.Manager
 
         private void Start()
         {
+            
             OnStart();
             EventManager.NextLevel += OnStart;
             EventManager.NextLevel += ChangeLevel;
         }
         void OnStart()
         {
-            _levelText.text = _levels[_levelManagerSettings.LevelCount].name;
-            _mainMenulevelText.text = _levels[_levelManagerSettings.LevelCount].name;
+            if (_levelManagerSettings.LevelCount <= _levels.Count - 1)
+            {
+                _levelText.text = _levels[_levelManagerSettings.LevelCount].name;
+                _mainMenulevelText.text = _levels[_levelManagerSettings.LevelCount].name;
+            }
+            else
+            {
+                CurrentLevel();
+                OnStart();
+            }
         }
         public void ChangeLevel()
         {
             _levelManagerSettings.LevelCount++;
-            //return _levels[_levelManagerSettings.LevelCount];
+            OnStart();
         }
         public LevelSettings CurrentLevel()
         {
-            return _levels[_levelManagerSettings.LevelCount];
+            if (_levelManagerSettings.LevelCount <= _levels.Count - 1)
+                return _levels[_levelManagerSettings.LevelCount];
+            else
+            {
+                _levelManagerSettings.LevelCount = 0;
+
+                return _levels[_levelManagerSettings.LevelCount];
+            }
+
+
         }
         private void OnDestroy()
         {

@@ -26,7 +26,8 @@ namespace Item.InventoryManager
         private void Awake()
         {
             Instance = this;
-            _coinSettings.TotalCoin = 5000;
+            //TODO : DELETE       
+           // _coinSettings.TotalCoin = 5000;
         }
         private void Start()
         {

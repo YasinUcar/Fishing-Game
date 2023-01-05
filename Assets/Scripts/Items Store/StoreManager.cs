@@ -108,6 +108,7 @@ namespace Store.Manager
                     if (isChange == true)
                     {
                         _storeManagerSettings.CurrentHad = "CowboyHat";
+                        //   CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[0].Value);
                         ChangeItem("CowboyHat");
                     }
 
@@ -117,6 +118,7 @@ namespace Store.Manager
                     if (isChange2 == true)
                     {
                         _storeManagerSettings.CurrentHad = "Crown";
+                        //  CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[1].Value);
                         ChangeItem("Crown");
                     }
 
@@ -126,6 +128,7 @@ namespace Store.Manager
                     if (isChange3 == true)
                     {
                         _storeManagerSettings.CurrentHad = "MagicianHat";
+                        //  CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[2].Value);
                         ChangeItem("MagicianHat");
                     }
 
@@ -135,6 +138,7 @@ namespace Store.Manager
                     if (isChange4 == true)
                     {
                         _storeManagerSettings.CurrentHad = "PijamaHat";
+                        //  CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[3].Value);
                         ChangeItem("PijamaHat");
                     }
 
@@ -144,6 +148,7 @@ namespace Store.Manager
                     if (isChange5 == true)
                     {
                         _storeManagerSettings.CurrentHad = "PillboxHat";
+                        //   CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[4].Value);
                         ChangeItem("PillboxHat");
                     }
 
@@ -153,6 +158,7 @@ namespace Store.Manager
                     if (isChange6 == true)
                     {
                         _storeManagerSettings.CurrentHad = "PoliceHat";
+                        //  CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[5].Value);
                         ChangeItem("PoliceHat");
                     }
 
@@ -162,6 +168,7 @@ namespace Store.Manager
                     if (isChange7 == true)
                     {
                         _storeManagerSettings.CurrentHad = "ShowerCap";
+                        //  CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[6].Value);
                         ChangeItem("ShowerCap");
                     }
 
@@ -171,6 +178,7 @@ namespace Store.Manager
                     if (isChange8 == true)
                     {
                         _storeManagerSettings.CurrentHad = "SombreroHat";
+                        // CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[7].Value);
                         ChangeItem("SombreroHat");
                     }
 
@@ -180,6 +188,7 @@ namespace Store.Manager
                     if (isChange9 == true)
                     {
                         _storeManagerSettings.CurrentHad = "VikingHat";
+                        //CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[8].Value);
                         ChangeItem("VikingHat");
                     }
 
@@ -189,6 +198,7 @@ namespace Store.Manager
                     if (isChange10 == true)
                     {
                         _storeManagerSettings.CurrentHad = "MinerHat";
+                        // CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[9].Value);
                         ChangeItem("MinerHat");
                     }
 
@@ -197,7 +207,9 @@ namespace Store.Manager
                     _storeManagerSettings.CurrentHad = "Empty";
                     ChangeItem("Empty");
                     break;
+
             }
+            CheckedUnlockItemImages();
         }
         void BuyRod(string item)
         {
@@ -208,6 +220,7 @@ namespace Store.Manager
                     if (isChange == true)
                     {
                         _storeManagerSettings.CurrentRod = "Blue Rod";
+                        CoinManager.Instance.ReduceCoin(_listScriptableObjectsRod[0].Value);
                         ChangeRod("Blue Rod");
                     }
                     break;
@@ -216,6 +229,7 @@ namespace Store.Manager
                     if (isChange2 == true)
                     {
                         _storeManagerSettings.CurrentRod = "Green Rod";
+                        CoinManager.Instance.ReduceCoin(_listScriptableObjectsRod[1].Value);
                         ChangeRod("Green Rod");
                     }
                     break;
@@ -224,6 +238,7 @@ namespace Store.Manager
                     ChangeRod("Main Rod");
                     break;
             }
+            CheckedUnlockItemImages();
         }
         void ChangeItem(string weaponName)
         {
@@ -259,8 +274,13 @@ namespace Store.Manager
             if (character.Unlock == false && CoinManager.Instance.CurrentCoin() >= character.Value)
             {
                 character.Unlock = true;
+                CoinManager.Instance.ReduceCoin(character.Value);
                 return true;
 
+            }
+            else if (character.Unlock == true)
+            {
+                return true;
             }
             else
             {
