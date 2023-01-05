@@ -4,6 +4,7 @@ using UnityEngine;
 using Level;
 using UnityEngine.UI;
 using DG.Tweening;
+using Level.Manager;
 namespace Score.Manager
 {
     public class ScoreManager : MonoBehaviour
@@ -12,6 +13,7 @@ namespace Score.Manager
 
 
         [SerializeField] private ScoreManagerSettings _scoreManagerSettings;
+        [SerializeField] private LevelManager _levelManager;
         [SerializeField] private Image[] _scoreIcons;
         [SerializeField] private GameObject _endLevelCanvas;
         private void Awake()
@@ -21,10 +23,16 @@ namespace Score.Manager
         private void Start()
         {
             EventManager.NextLevel += EnableEndLevelCanvas;
+            OnStart();
+        }
+        void OnStart()
+        {
+            _scoreManagerSettings.CurrentScore = 0;
         }
         public void EnableEndLevelCanvas()
         {
             _endLevelCanvas.SetActive(true);
+            CheckScore(_levelManager.CurrentLevel());
         }
 
         public void IncreaseScore(float score)
@@ -38,7 +46,7 @@ namespace Score.Manager
         public void CheckScore(LevelSettings levelSettings)
         {
             //TODO : SCORE OLAYLARI DAHA DETAYLI VE DÜZGÜN OLABİLİR
-            if (levelSettings.TargetScore >= _scoreManagerSettings.CurrentScore)
+            if (levelSettings.TargetScore >= _scoreManagerSettings.CurrentScore )
             {
                 for (int i = 0; i < 3; i++)
                 {

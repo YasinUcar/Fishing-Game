@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.NextFish += FishCaught;
-        EventManager.NextFish += OnStart;
+        EventManager.NextFish -= FishCaught;
+        EventManager.NextFish -= OnStart;
 
     }
 

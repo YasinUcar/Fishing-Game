@@ -31,9 +31,11 @@ namespace Player.Manager
         public void ResetTriger()
         {
             _animator.ResetTrigger("Victory");
+            _animator.SetBool("Idle", true);
         }
         void TriggerVictory()
         {
+            _animator.SetBool("Idle", false);
             _animator.SetTrigger("Victory");
         }
         void StartingGameAnimation()
@@ -47,13 +49,14 @@ namespace Player.Manager
             yield return new WaitForSeconds(3f);
             _animator.SetBool("Idle", true);
             _startMenuManager.TapToStart(true);
+
             StopCoroutine(PlayIdleAnimation());
         }
         private void OnDestroy()
         {
             EventManager.NextFish -= TriggerCek;
             EventManager.StartGame -= StartingGameAnimation;
-            EventManager.NextLevel += TriggerVictory;
+            EventManager.NextLevel -= TriggerVictory;
         }
 
     }

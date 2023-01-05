@@ -28,6 +28,10 @@ namespace Level.Manager
             _levelManagerSettings.LevelCount++;
             //return _levels[_levelManagerSettings.LevelCount];
         }
+        public LevelSettings CurrentLevel()
+        {
+            return _levels[_levelManagerSettings.LevelCount];
+        }
         private void OnDestroy()
         {
             EventManager.NextLevel -= OnStart;

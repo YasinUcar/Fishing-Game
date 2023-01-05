@@ -11,27 +11,34 @@ namespace Player.Controller
     {
         [SerializeField] private ProgressBarSettings _progressBarSettings;
         [SerializeField] private Scrollbar _progressBarScrool;
+        [SerializeField] private RectTransform _playerBarScrool;
 
         private bool _isExit;
-
+        Vector3 startPlaybarTranform;
         private bool _fishCaught;
         private void Start()
         {
+            startPlaybarTranform = _playerBarScrool.transform.position;
             OnStart();
             EventManager.NextFish += OnStart;
+            EventManager.StartGame += ResetProgressBarStartGame;
         }
         void OnStart()
         {
             _progressBarSettings.ProgressBarValue = 0;
             StartCoroutine(ResetProgressBar());
-
+        }
+        void ResetProgressBarStartGame()
+        {
+            _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
+            _fishCaught = false;
+            _playerBarScrool.transform.position = startPlaybarTranform;
         }
         IEnumerator ResetProgressBar()
         {
             yield return new WaitForSeconds(3f);
             _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
             _fishCaught = false;
-            yield return null;
         }
         private void OnTriggerStay2D(Collider2D other)
         {
@@ -69,6 +76,7 @@ namespace Player.Controller
         private void OnDestroy()
         {
             EventManager.NextFish -= OnStart;
+            EventManager.StartGame -= ResetProgressBarStartGame;
         }
     }
 }
