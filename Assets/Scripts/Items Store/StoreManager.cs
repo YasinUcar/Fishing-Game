@@ -201,7 +201,15 @@ namespace Store.Manager
                         // CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[9].Value);
                         ChangeItem("MinerHat");
                     }
-
+                    break;
+                case "MainHat":
+                    bool isChange11 = CheckedUnlockItem(_listScriptableObjectsChacter[10]);
+                    if (isChange11 == true)
+                    {
+                        _storeManagerSettings.CurrentHad = "MainHat";
+                        // CoinManager.Instance.ReduceCoin(_listScriptableObjectsChacter[9].Value);
+                        ChangeItem("MainHat");
+                    }
                     break;
                 default:
                     _storeManagerSettings.CurrentHad = "Empty";

@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fishs:
   - {fileID: 11400000, guid: edc057f0d172d2c409ea1c1712c5e151, type: 2}
-  - {fileID: 11400000, guid: 3b3ed16c32a485e4abd92661ddaf3ced, type: 2}
+  - {fileID: 11400000, guid: edc057f0d172d2c409ea1c1712c5e151, type: 2}
+  - {fileID: 11400000, guid: d907bbc55ce9cbd428562adc55b20760, type: 2}
+  - {fileID: 11400000, guid: d907bbc55ce9cbd428562adc55b20760, type: 2}
+  _levelBarSettings: {fileID: 11400000, guid: badf288976b9f4f45895e9a4308e0832, type: 2}
+  _targetScore: 400

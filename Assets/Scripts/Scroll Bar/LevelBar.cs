@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Level.Manager;
+using Audio.Manager;
 namespace LevelBarScroll
 {
     public class LevelBar : MonoBehaviour
@@ -11,6 +12,7 @@ namespace LevelBarScroll
         [SerializeField] private LevelBarSettings _LevelBarSettings;
         [SerializeField] private Scrollbar _scrollbar;
         [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private AudioClip _victorySFX;
         private void Awake()
         {
             Instance = this;
@@ -38,7 +40,6 @@ namespace LevelBarScroll
             if (_LevelBarSettings.LevelBarValue >= 1)
             {
                 OnStart();
-                
                 EventManager.StartNextLevel();
                 //_levelManager.ChangeLevel();
             }

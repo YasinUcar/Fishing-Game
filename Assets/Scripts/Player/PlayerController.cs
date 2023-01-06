@@ -25,6 +25,7 @@ namespace Player.Controller
             EventManager.StartGame += ResetProgressBarStartGame;
           
         }
+     
         void OnStart()
         {
             _progressBarSettings.ProgressBarValue = 0;

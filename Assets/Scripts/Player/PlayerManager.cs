@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StartManager;
+using Audio.Manager;
 namespace Player.Manager
 {
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private StartMenuManager _startMenuManager;
+       
         private Animator _animator;
         bool isClick;
         void Start()
@@ -37,6 +39,7 @@ namespace Player.Manager
         {
             _animator.SetBool("Idle", false);
             _animator.SetTrigger("Victory");
+        
         }
         void StartingGameAnimation()
         {
