@@ -6,7 +6,7 @@ namespace PathCreation.Examples
     // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
     public class PathFollower : MonoBehaviour
     {
-       
+
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
@@ -27,7 +27,13 @@ namespace PathCreation.Examples
             {
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction) + new Vector3(0, -0.562f, 0);
-             //  transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                var rot = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                var deneme = new Quaternion(transform.rotation.x, rot.y, transform.rotation.z, transform.rotation.w);
+
+                transform.rotation = deneme;
+                //  transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90f, transform.eulerAngles.z);
+
+                print(rot.y);
             }
         }
 

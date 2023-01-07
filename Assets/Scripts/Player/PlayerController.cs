@@ -12,7 +12,10 @@ namespace Player.Controller
         [SerializeField] private ProgressBarSettings _progressBarSettings;
         [SerializeField] private Scrollbar _progressBarScrool;
         [SerializeField] private RectTransform _playerBarScroolTransform;
+        [SerializeField] private Scrollbar _energyBar;
         [SerializeField] private Scrollbar _playerBarScrool;
+        [SerializeField] private Transform _targetObject;
+        [SerializeField] private float _lerpSpeed;
 
         private bool _isExit;
         Vector3 startPlaybarTranform;
@@ -23,9 +26,9 @@ namespace Player.Controller
             OnStart();
             EventManager.NextFish += OnStart;
             EventManager.StartGame += ResetProgressBarStartGame;
-          
+
         }
-     
+
         void OnStart()
         {
             _progressBarSettings.ProgressBarValue = 0;
@@ -68,6 +71,7 @@ namespace Player.Controller
         private void OnTriggerExit2D(Collider2D other)
         {
             _isExit = true;
+
         }
         private void Update()
         {
@@ -77,12 +81,33 @@ namespace Player.Controller
                 _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
 
             }
-
+            Deneme();
+            EnergyBar();
         }
         private void OnDestroy()
         {
             EventManager.NextFish -= OnStart;
             EventManager.StartGame -= ResetProgressBarStartGame;
+        }
+        void Deneme()
+        {
+            transform.position = Vector3.Lerp(transform.position, _targetObject.transform.position, _lerpSpeed);
+        }
+        void EnergyBar()
+        {
+            if (_isExit)
+            {
+                _energyBar.size -= 0.10f * Time.deltaTime;
+                if (_energyBar.size <= 0)
+                {
+                    EventManager.StartGameOver();
+                }
+            }
+            else
+            {
+                _energyBar.size += 0.10f * Time.deltaTime;
+            }
+
         }
     }
 }

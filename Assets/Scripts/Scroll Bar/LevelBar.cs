@@ -12,7 +12,7 @@ namespace LevelBarScroll
         [SerializeField] private LevelBarSettings _LevelBarSettings;
         [SerializeField] private Scrollbar _scrollbar;
         [SerializeField] private LevelManager _levelManager;
-        [SerializeField] private AudioClip _victorySFX;
+      
         private void Awake()
         {
             Instance = this;

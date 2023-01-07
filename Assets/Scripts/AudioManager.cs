@@ -8,10 +8,12 @@ namespace Audio.Manager
     {
         public static AudioManager Instance { get; private set; }
         [SerializeField] private AudioSource _audioSource;
+        
         private void Awake()
         {
             Instance = this;
             DontDestroyOnLoad(_audioSource);
+          
         }
         public void PlayAudio(AudioClip clip)
         {

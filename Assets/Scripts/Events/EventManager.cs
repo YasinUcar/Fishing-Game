@@ -7,6 +7,7 @@ public class EventManager : MonoBehaviour
     public static event Action NextLevel;
     public static event Action NextFish;
     public static event Action StartGame;
+    public static event Action GameOver;
 
     public static void StartNextFish()
     {
@@ -19,6 +20,10 @@ public class EventManager : MonoBehaviour
     public static void StartNextLevel()
     {
         NextLevel?.Invoke();
+    }
+    public static void StartGameOver()
+    {
+        GameOver?.Invoke();
     }
 
 }
