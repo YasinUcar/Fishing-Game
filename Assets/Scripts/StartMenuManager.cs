@@ -13,6 +13,7 @@ namespace StartManager
         {
             OnStart();
             EventManager.NextLevel += OnStart;
+            EventManager.GameOver += OnStart;
         }
 
         private void OnStart()
@@ -48,6 +49,7 @@ namespace StartManager
         private void OnDestroy()
         {
             EventManager.NextLevel -= OnStart;
+            EventManager.GameOver -= OnStart;
         }
 
     }

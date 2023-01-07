@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _itemName: Green Rod
-  _value: 2000
+  _value: 1000
   _icon: {fileID: 21300000, guid: 0ae03f9b0747a024ba4aa8d7b733d3eb, type: 3}
+  _fishingRodPower: 0

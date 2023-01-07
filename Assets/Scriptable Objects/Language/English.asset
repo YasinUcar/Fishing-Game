@@ -18,4 +18,5 @@ MonoBehaviour:
   taptoStart: TAP TO START
   _characterButtonText: 'Character '
   _rodButtonText: Rod
-  _endScreenWinLostText: You Caught!
+  _endScreenWinText: You Caught!
+  _endScreenLostText: You Couldn't Catch!

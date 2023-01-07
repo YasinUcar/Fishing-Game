@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc2d046672c0b74789b5048779ef9d3, type: 3}
-  m_Name: Main Rod
+  m_Name: Wood Rod
   m_EditorClassIdentifier: 
   _id: 2
   _itemName: Main Rod
-  _value: 0
+  _value: 2000
   _icon: {fileID: 21300000, guid: 7459cc2864acf3343bc2191ea8c9f99a, type: 3}
+  _fishingRodPower: 0

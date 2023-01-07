@@ -15,7 +15,7 @@ namespace Language.Manager
 
         private GameObject _objNewItem;
         [SerializeField]
-        private TextMeshProUGUI _settingsText, _langText, _taptoStartText, _langButtonText, _characterButtonText, _rodButtonText, _winLostText;
+        private TextMeshProUGUI _settingsText, _langText, _taptoStartText, _langButtonText, _characterButtonText, _rodButtonText, _winText, _lostText;
 
         private void Start()
         {
@@ -60,8 +60,8 @@ namespace Language.Manager
                     _langButtonText.text = english.LangText;
                     _characterButtonText.text = english.ChacterButtonText;
                     _rodButtonText.text = english.RodButtonText;
-                    _winLostText.text = english.EndScreenWinLostText;
-
+                    _winText.text = english.EndScreenWinText;
+                    _lostText.text = english.EndScreenLostText;
                     _languageManagerSettings._languageSettings[0].Unlock = true;
                     _languageManagerSettings._languageSettings[1].Unlock = false;
 
@@ -75,8 +75,8 @@ namespace Language.Manager
                     _taptoStartText.text = turkish.TapToStart;
                     _langButtonText.text = turkish.LangText;
                     _rodButtonText.text = turkish.RodButtonText;
-                    _winLostText.text = turkish.EndScreenWinLostText;
-
+                    _winText.text = turkish.EndScreenWinText;
+                    _lostText.text = turkish.EndScreenLostText;
                     _languageManagerSettings._languageSettings[0].Unlock = false;
                     _languageManagerSettings._languageSettings[1].Unlock = true;
                     break;
@@ -86,6 +86,7 @@ namespace Language.Manager
             }
             ChangeUnlocks();
         }
+
         void ChangeUnlocks()
         {
             for (int i = 0; i < _languageManagerSettings._languageSettings.Count; i++)

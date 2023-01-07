@@ -16,6 +16,7 @@ namespace Player.Controller
         [SerializeField] private Scrollbar _playerBarScrool;
         [SerializeField] private Transform _targetObject;
         [SerializeField] private float _lerpSpeed;
+        [SerializeField] private GameObject _lostText, _winText;
 
         private bool _isExit;
         Vector3 startPlaybarTranform;
@@ -81,15 +82,11 @@ namespace Player.Controller
                 _progressBarScrool.size = _progressBarSettings.ProgressBarValue;
 
             }
-            Deneme();
+            LerpPlayerBar();
             EnergyBar();
         }
-        private void OnDestroy()
-        {
-            EventManager.NextFish -= OnStart;
-            EventManager.StartGame -= ResetProgressBarStartGame;
-        }
-        void Deneme()
+
+        void LerpPlayerBar()
         {
             transform.position = Vector3.Lerp(transform.position, _targetObject.transform.position, _lerpSpeed);
         }
@@ -97,10 +94,13 @@ namespace Player.Controller
         {
             if (_isExit)
             {
-                _energyBar.size -= 0.10f * Time.deltaTime;
+                _energyBar.size -= 0.50f * Time.deltaTime;
                 if (_energyBar.size <= 0)
                 {
                     EventManager.StartGameOver();
+                    _winText.SetActive(false);
+                    _lostText.SetActive(true);
+
                 }
             }
             else
@@ -108,6 +108,11 @@ namespace Player.Controller
                 _energyBar.size += 0.10f * Time.deltaTime;
             }
 
+        }
+        private void OnDestroy()
+        {
+            EventManager.NextFish -= OnStart;
+            EventManager.StartGame -= ResetProgressBarStartGame;
         }
     }
 }

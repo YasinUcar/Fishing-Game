@@ -8,7 +8,7 @@ namespace Player.Manager
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private StartMenuManager _startMenuManager;
-       
+
         private Animator _animator;
         bool isClick;
         void Start()
@@ -21,6 +21,7 @@ namespace Player.Manager
             EventManager.NextFish += TriggerCek;
             EventManager.StartGame += StartingGameAnimation;
             EventManager.NextLevel += TriggerVictory;
+            EventManager.GameOver += TriggerLose;
         }
 
         public void TriggerCek()
@@ -33,13 +34,19 @@ namespace Player.Manager
         public void ResetTriger()
         {
             _animator.ResetTrigger("Victory");
+            _animator.ResetTrigger("Defeat");
             _animator.SetBool("Idle", true);
         }
         void TriggerVictory()
         {
             _animator.SetBool("Idle", false);
             _animator.SetTrigger("Victory");
-        
+
+        }
+        void TriggerLose()
+        {
+            _animator.SetBool("Idle", false);
+            _animator.SetTrigger("Defeat");
         }
         void StartingGameAnimation()
         {
@@ -60,6 +67,7 @@ namespace Player.Manager
             EventManager.NextFish -= TriggerCek;
             EventManager.StartGame -= StartingGameAnimation;
             EventManager.NextLevel -= TriggerVictory;
+            EventManager.GameOver -= TriggerLose;
         }
 
     }

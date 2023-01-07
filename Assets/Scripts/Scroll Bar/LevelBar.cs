@@ -11,8 +11,8 @@ namespace LevelBarScroll
         public static LevelBar Instance;
         [SerializeField] private LevelBarSettings _LevelBarSettings;
         [SerializeField] private Scrollbar _scrollbar;
-        [SerializeField] private LevelManager _levelManager;
-      
+        [SerializeField] private GameObject _winText, _loseText;
+
         private void Awake()
         {
             Instance = this;
@@ -21,6 +21,8 @@ namespace LevelBarScroll
         {
             OnStart();
             EventManager.NextLevel += OnStart;
+            EventManager.GameOver += OnStart;
+
         }
         void OnStart()
         {
@@ -40,6 +42,8 @@ namespace LevelBarScroll
             if (_LevelBarSettings.LevelBarValue >= 1)
             {
                 OnStart();
+                _loseText.SetActive(false);
+                _winText.SetActive(true);
                 EventManager.StartNextLevel();
                 //_levelManager.ChangeLevel();
             }
@@ -53,6 +57,7 @@ namespace LevelBarScroll
         private void OnDestroy()
         {
             EventManager.NextLevel -= OnStart;
+            EventManager.GameOver -= OnStart;
         }
 
     }

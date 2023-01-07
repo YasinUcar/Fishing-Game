@@ -23,6 +23,7 @@ namespace Score.Manager
         private void Start()
         {
             EventManager.NextLevel += EnableEndLevelCanvas;
+            EventManager.GameOver += EnableEndLevelCanvas;
             OnStart();
         }
         void OnStart()
@@ -46,7 +47,7 @@ namespace Score.Manager
         public void CheckScore(LevelSettings levelSettings)
         {
             //TODO : SCORE OLAYLARI DAHA DETAYLI VE DÜZGÜN OLABİLİR
-            if (levelSettings.TargetScore >= _scoreManagerSettings.CurrentScore )
+            if (levelSettings.TargetScore >= _scoreManagerSettings.CurrentScore)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -77,6 +78,7 @@ namespace Score.Manager
         private void OnDestroy()
         {
             EventManager.NextLevel -= EnableEndLevelCanvas;
+            EventManager.GameOver -= EnableEndLevelCanvas;
         }
     }
 }

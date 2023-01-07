@@ -223,13 +223,13 @@ namespace Store.Manager
         {
             switch (item)
             {
-                case "Blue Rod":
+                case "Wood Rod":
                     bool isChange = CheckedUnlockItem(_listScriptableObjectsRod[0]);
                     if (isChange == true)
                     {
-                        _storeManagerSettings.CurrentRod = "Blue Rod";
+                        _storeManagerSettings.CurrentRod = "Wood Rod";
                         CoinManager.Instance.ReduceCoin(_listScriptableObjectsRod[0].Value);
-                        ChangeRod("Blue Rod");
+                        ChangeRod("Wood Rod");
                     }
                     break;
                 case "Green Rod":
@@ -242,8 +242,8 @@ namespace Store.Manager
                     }
                     break;
                 default:
-                    _storeManagerSettings.CurrentRod = "Main Rod";
-                    ChangeRod("Main Rod");
+                    _storeManagerSettings.CurrentRod = "Blue Rod";
+                    ChangeRod("Blue Rod");
                     break;
             }
             CheckedUnlockItemImages();
