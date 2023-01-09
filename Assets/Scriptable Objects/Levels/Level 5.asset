@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: Level 5
   m_EditorClassIdentifier: 
   _fishs:
-  - {fileID: 11400000, guid: edc057f0d172d2c409ea1c1712c5e151, type: 2}
   - {fileID: 11400000, guid: 3b3ed16c32a485e4abd92661ddaf3ced, type: 2}
+  - {fileID: 11400000, guid: 3b3ed16c32a485e4abd92661ddaf3ced, type: 2}
+  - {fileID: 11400000, guid: 3b3ed16c32a485e4abd92661ddaf3ced, type: 2}
+  - {fileID: 11400000, guid: edc057f0d172d2c409ea1c1712c5e151, type: 2}
+  _levelBarSettings: {fileID: 11400000, guid: 0ab5c7e569c740a45b6e95b6383d58d8, type: 2}
+  _targetScore: 300
+  _rodDifficultyBlue: 5
+  _rodDifficultyGreen: 3
+  _rodDifficultyWood: 1

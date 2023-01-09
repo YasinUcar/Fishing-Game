@@ -27,11 +27,10 @@ namespace Item.InventoryManager
         {
             Instance = this;
             //TODO : DELETE       
-
-            _coinSettings.TotalCoin = 5000;
         }
         private void Start()
         {
+
             OnStart();
             _itemsListLenght = _items.Count;
         }
@@ -72,6 +71,7 @@ namespace Item.InventoryManager
             item.Coin += CoinValue;
             item.FishCount += FishCount;
             _coinSettings.TotalCoin += CoinValue; //TODO : Optimize?
+            CoinManager.Instance.ChangesCoinText();
         }
         //TODO : DELETE
         // public void Remove(ItemSettings item)

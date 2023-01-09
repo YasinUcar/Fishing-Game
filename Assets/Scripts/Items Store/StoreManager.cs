@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Linq;
 using Coin.Manager;
+using Level.Manager;
 
 namespace Store.Manager
 {
@@ -23,9 +24,11 @@ namespace Store.Manager
         [SerializeField] CharacterItemSettings[] _listScriptableObjectsChacter;
         [SerializeField] CharacterItemSettings[] _listScriptableObjectsRod;
         [SerializeField] private List<Image> _itemUnlockItems, _itemUnlockRod;
+        [SerializeField] private LevelManager _levelManager;
 
         [SerializeField]
         private GameObject _objChacterItem, _objRodItem;
+        private float _powerRod;
 
         void Start()
         {
@@ -230,6 +233,7 @@ namespace Store.Manager
                         _storeManagerSettings.CurrentRod = "Wood Rod";
                         CoinManager.Instance.ReduceCoin(_listScriptableObjectsRod[0].Value);
                         ChangeRod("Wood Rod");
+                        _powerRod = _listScriptableObjectsRod[0].FishingRodLerpSpeed;
                     }
                     break;
                 case "Green Rod":
@@ -239,14 +243,21 @@ namespace Store.Manager
                         _storeManagerSettings.CurrentRod = "Green Rod";
                         CoinManager.Instance.ReduceCoin(_listScriptableObjectsRod[1].Value);
                         ChangeRod("Green Rod");
+                        _powerRod = _listScriptableObjectsRod[1].FishingRodLerpSpeed;
                     }
                     break;
                 default:
                     _storeManagerSettings.CurrentRod = "Blue Rod";
                     ChangeRod("Blue Rod");
+                    _powerRod = _listScriptableObjectsRod[2].FishingRodLerpSpeed;
                     break;
             }
             CheckedUnlockItemImages();
+            _levelManager.CurrentRodDifficulty();
+        }
+        public float RodPower()
+        {
+            return _powerRod;
         }
         void ChangeItem(string weaponName)
         {

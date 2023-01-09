@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc2d046672c0b74789b5048779ef9d3, type: 3}
-  m_Name: Wood Rod
+  m_Script: {fileID: 11500000, guid: 4c1abb4d62793434ba8e190bc9e6d638, type: 3}
+  m_Name: Level4 BarSettings 1
   m_EditorClassIdentifier: 
-  _id: 2
-  _itemName: Wood Rod
-  _value: 2000
-  _icon: {fileID: 21300000, guid: 7459cc2864acf3343bc2191ea8c9f99a, type: 3}
-  _fishingRodPower: 0.05
+  _levelBarValue: 0
+  _increaseValue: 0.25
+  _reduceValue: 0.001

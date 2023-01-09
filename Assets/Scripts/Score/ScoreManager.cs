@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Level;
 using UnityEngine.UI;
-using DG.Tweening;
 using Level.Manager;
+using DG.Tweening;
 namespace Score.Manager
 {
     public class ScoreManager : MonoBehaviour
@@ -24,6 +24,7 @@ namespace Score.Manager
         {
             EventManager.NextLevel += EnableEndLevelCanvas;
             EventManager.GameOver += EnableEndLevelCanvas;
+
             OnStart();
         }
         void OnStart()
@@ -46,8 +47,11 @@ namespace Score.Manager
         }
         public void CheckScore(LevelSettings levelSettings)
         {
+           
+            print(_scoreManagerSettings.CurrentScore);
+            print(levelSettings.TargetScore);
             //TODO : SCORE OLAYLARI DAHA DETAYLI VE DÜZGÜN OLABİLİR
-            if (levelSettings.TargetScore >= _scoreManagerSettings.CurrentScore)
+            if (_scoreManagerSettings.CurrentScore >= levelSettings.TargetScore)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -56,7 +60,7 @@ namespace Score.Manager
 
                 }
             }
-            else if (levelSettings.TargetScore < _scoreManagerSettings.CurrentScore && _scoreManagerSettings.CurrentScore > 100f)
+            else if (_scoreManagerSettings.CurrentScore < levelSettings.TargetScore && _scoreManagerSettings.CurrentScore > 100f)
             {
                 for (int i = 0; i < 2; i++)
                 {
@@ -74,11 +78,19 @@ namespace Score.Manager
 
                 }
             }
+
         }
         private void OnDestroy()
         {
             EventManager.NextLevel -= EnableEndLevelCanvas;
             EventManager.GameOver -= EnableEndLevelCanvas;
+            EventManager.NextLevel -= OnStart;
+            EventManager.GameOver -= OnStart;
+        }
+        private void Update()
+        {
+
+
         }
     }
 }

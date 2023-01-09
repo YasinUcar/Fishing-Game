@@ -16,4 +16,4 @@ MonoBehaviour:
   _itemName: Blue Rod
   _value: 0
   _icon: {fileID: 21300000, guid: e1b2ece1a3ee6c6429285724524dcf9a, type: 3}
-  _fishingRodPower: 0
+  _fishingRodPower: 0.05

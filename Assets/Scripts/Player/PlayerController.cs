@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player.ProgressBar;
 using UnityEngine.UI;
-
-using TMPro;
+using Store.Manager;
+using Level.Manager;
 namespace Player.Controller
 {
     public class PlayerController : MonoBehaviour
@@ -17,6 +17,8 @@ namespace Player.Controller
         [SerializeField] private Transform _targetObject;
         [SerializeField] private float _lerpSpeed;
         [SerializeField] private GameObject _lostText, _winText;
+        [SerializeField] private StoreManager _storeManager;
+        [SerializeField] private LevelManager _levelManager;
 
         private bool _isExit;
         Vector3 startPlaybarTranform;
@@ -88,13 +90,15 @@ namespace Player.Controller
 
         void LerpPlayerBar()
         {
-            transform.position = Vector3.Lerp(transform.position, _targetObject.transform.position, _lerpSpeed);
+            transform.position = Vector3.Lerp(transform.position, _targetObject.transform.position, _storeManager.RodPower() / _levelManager.CurrentRodDifficulty());
+            float deneme = _levelManager.CurrentRodDifficulty();
+            print(deneme);
         }
         void EnergyBar()
         {
             if (_isExit)
             {
-                _energyBar.size -= 0.50f * Time.deltaTime;
+                _energyBar.size -= 0.10f * Time.deltaTime;
                 if (_energyBar.size <= 0)
                 {
                     EventManager.StartGameOver();

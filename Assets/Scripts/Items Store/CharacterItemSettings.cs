@@ -18,7 +18,7 @@ namespace Item.Character
         [SerializeField] private Sprite _icon;
         public Sprite Icon { get => _icon; }
         [SerializeField] private float _fishingRodPower;
-        public float FishingRodPower { get => _fishingRodPower; }
+        public float FishingRodLerpSpeed { get => _fishingRodPower; } //düşük olması daha iyidir
         public bool Unlock
         {
             get
