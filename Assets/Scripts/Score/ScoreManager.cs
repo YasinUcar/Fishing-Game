@@ -47,7 +47,7 @@ namespace Score.Manager
         }
         public void CheckScore(LevelSettings levelSettings)
         {
-           
+
             print(_scoreManagerSettings.CurrentScore);
             print(levelSettings.TargetScore);
             //TODO : SCORE OLAYLARI DAHA DETAYLI VE DÜZGÜN OLABİLİR
@@ -90,7 +90,7 @@ namespace Score.Manager
         private void Update()
         {
 
-
+            print(_scoreManagerSettings.CurrentScore);
         }
     }
 }

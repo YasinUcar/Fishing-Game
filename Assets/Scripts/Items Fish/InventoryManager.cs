@@ -26,11 +26,11 @@ namespace Item.InventoryManager
         private void Awake()
         {
             Instance = this;
-            //TODO : DELETE       
+
         }
         private void Start()
         {
-
+           
             OnStart();
             _itemsListLenght = _items.Count;
         }

@@ -27,6 +27,8 @@ namespace Audio.Manager
         public void UnMuteSound()
         {
             AudioListener.pause = false;
+            
+           
         }
     }
 }

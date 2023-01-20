@@ -22,7 +22,7 @@ namespace Language.Manager
         public string RodButtonText { get => _rodButtonText; }
         [Header("End Screen UI")]
         [SerializeField] private string _endScreenWinText;
-        public string EndScreenWinText { get => _endScreenLostText; }
+        public string EndScreenWinText { get => _endScreenWinText; }
         [SerializeField] private string _endScreenLostText;
         public string EndScreenLostText { get => _endScreenLostText; }
         public bool Unlock

@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d907bbc55ce9cbd428562adc55b20760, type: 2}
   _levelBarSettings: {fileID: 11400000, guid: 9e2ced70cecac3b4daaeabed1feb7c47, type: 2}
   _targetScore: 200
-  _rodDifficultyBlue: 1
-  _rodDifficultyGreen: 1
-  _rodDifficultyWood: 1
+  _rodDifficultyBlue: 0.7
+  _rodDifficultyGreen: 0.7
+  _rodDifficultyWood: 0.7

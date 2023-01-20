@@ -16,6 +16,7 @@ namespace Level.Manager
 
         private void Start()
         {
+          
             OnStart();
             EventManager.NextLevel += OnStart;
             EventManager.NextLevel += ChangeLevel;
@@ -44,7 +45,7 @@ namespace Level.Manager
         {
 
             if (_levelManagerSettings.LevelCount <= _levels.Count - 1)
-                return _levels[_levelManagerSettings.LevelCount - 1];
+                return _levels[_levelManagerSettings.LevelCount ];
             else
             {
                 _levelManagerSettings.LevelCount = 0;

@@ -20,6 +20,7 @@ namespace Player.Controller
         [SerializeField] private StoreManager _storeManager;
         [SerializeField] private LevelManager _levelManager;
 
+
         private bool _isExit;
         Vector3 startPlaybarTranform;
         private bool _fishCaught;
@@ -92,7 +93,7 @@ namespace Player.Controller
         {
             transform.position = Vector3.Lerp(transform.position, _targetObject.transform.position, _storeManager.RodPower() / _levelManager.CurrentRodDifficulty());
             float deneme = _levelManager.CurrentRodDifficulty();
-            print(deneme);
+
         }
         void EnergyBar()
         {
@@ -118,5 +119,16 @@ namespace Player.Controller
             EventManager.NextFish -= OnStart;
             EventManager.StartGame -= ResetProgressBarStartGame;
         }
+        public void LeftMovement()
+        {
+            _playerBarScrool.value -= _storeManager.RodPower();
+            print("SOLA BASİLDİ");
+        }
+        public void RightMovement()
+        {
+            _playerBarScrool.value += _storeManager.RodPower();
+            print("SAĞA BASİLDİ");
+        }
     }
+
 }
